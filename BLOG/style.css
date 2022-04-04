@@ -1,0 +1,232 @@
+body {
+  background-image: url("./code2_high.jpeg");
+}
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: transparent;
+  width: 100%;
+  position: fixed;
+  left: 0px;
+  top: 0px;
+}
+.baslik {
+  color: rgb(218, 236, 13);
+}
+.homepage {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+
+.homepage a button {
+  text-decoration: none;
+  background-color: cadetblue;
+  border: px;
+  color: wheat;
+  cursor: pointer;
+  background-color: red;
+  left: 0px;
+  top: 0px;
+}
+.subContent {
+  /* background-color: white; */
+  width: 100%;
+  height: 1000px;
+  padding-top: 150px;
+  z-index: 1;
+}
+.subContent1 {
+  background-color: rgba(117, 191, 201, 0.8);
+  width: 1900px;
+  height: 1100px;
+  padding-top: 150px;
+  padding-left: 25px;
+  left: 0px;
+  top: 0px;
+  z-index: 1;
+  font-size: 25px;
+}
+.item {
+  background-color: rgba(0, 0, 0, 0, 5);
+}
+.item a button {
+  background-color: transparent;
+  color: rgb(218, 236, 13);
+  padding: 25px;
+  width: 150px;
+  height: 100px;
+  font-size: large;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-style: italic;
+  font-weight: bold;
+  margin-right: 45px;
+  border: 0px solid yellow;
+  cursor: pointer;
+  border-radius: 5px;
+  border: 1px solid rgb(253, 252, 252);
+  z-index: 0;
+}
+.item a button:hover {
+  background-color: rgb(151, 129, 5);
+}
+.item a .homebtn {
+  border: 0px;
+  background-color: rgb(3, 116, 150);
+  color: wheat;
+  padding: 29px;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap");
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.cartContent {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 2000px;
+
+  margin-block: 2rem;
+  gap: 5rem;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  /* width: clamp(20rem, calc(20rem + 2vw), 22rem); */
+  overflow: hidden;
+  max-width: 800px;
+  height: 770px;
+  box-shadow: 0 0.1rem 1rem rgba(0, 0, 0, 0.1);
+  border-radius: 1em;
+  background: #ece9e6;
+  background: linear-gradient(to right, #ffffff, #ece9e6);
+}
+
+.card__body {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.tag {
+  align-self: flex-start;
+  padding: 0.25em 0.75em;
+  border-radius: 1em;
+  font-size: 0.75rem;
+}
+
+.tag + .tag {
+  margin-left: 0.5em;
+}
+
+.tag-blue {
+  background: #56ccf2;
+  background: linear-gradient(to bottom, #2f80ed, #56ccf2);
+  color: #fafafa;
+}
+
+.tag-brown {
+  background: #d1913c;
+  background: linear-gradient(to bottom, #ffd194, #d1913c);
+  color: #fafafa;
+}
+
+.tag-red {
+  background: #cb2d3e;
+  background: linear-gradient(to bottom, #ef473a, #cb2d3e);
+  color: #fafafa;
+}
+
+.card__body h4 {
+  font-size: 1.5rem;
+  text-transform: capitalize;
+}
+
+.card__footer {
+  display: flex;
+  padding: 1rem;
+  margin-top: auto;
+}
+
+.user {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.user__image {
+  border-radius: 50%;
+}
+
+.user__info > small {
+  color: #666;
+}
+.container2 {
+  display: block;
+  justify-content: center;
+  align-items: center;
+  background-color: cadetblue;
+  margin-top: 120px;
+  width: 500px;
+  height: 800px;
+  margin-left: 700px;
+  padding: 100px;
+}
+.header {
+  font-size: 30px;
+  /* margin-bottom:5px; */
+  text-align: center;
+}
+.bilgiler input {
+  display: block;
+  justify-content: center;
+  align-items: center;
+  height: 35px;
+  margin-left: 18px;
+  width: 250px;
+  border-radius: 5px;
+}
+.bilgiler input:hover {
+  border: 3px solid red;
+  background-color: rgb(250, 246, 246);
+}
+
+.bilgiler label {
+  display: block;
+  justify-content: center;
+  align-items: center;
+  margin-left: 100px;
+  width: 250px;
+  font-size: 25px;
+}
+.bilgiler button {
+  display: block;
+  justify-content: center;
+  align-items: center;
+  margin-left: 17px;
+  margin-top: 25px;
+  width: 250px;
+  margin-bottom: 25px;
+  font-size: 25px;
+  border: 0 solid gray;
+  cursor: pointer;
+  border-radius: 8px;
+}
+.bilgiler button:hover {
+  border: 2px solid rgb(235, 62, 62);
+}
