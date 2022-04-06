@@ -1,0 +1,51 @@
+.container2 {
+  display: block;
+  justify-content: center;
+  align-items: center;
+  background-color: aquamarine;
+  width: 500px;
+  height: 620px;
+  margin-left: 700px;
+  padding: 100px;
+}
+.header {
+  font-size: 30px;
+  /* margin-bottom:5px; */
+  text-align: center;
+}
+.bilgiler input {
+  display: block;
+  justify-content: center;
+  align-items: center;
+  height: 35px;
+  margin-left: 18px;
+  width: 250px;
+  border-radius: 5px;
+}
+.bilgiler input:hover {
+  border: 3px solid red;
+  background-color: rgb(250, 246, 246);
+}
+
+.bilgiler label {
+  display: block;
+  justify-content: center;
+  align-items: center;
+  margin-left: 100px;
+  width: 250px;
+  font-size: 25px;
+}
+.bilgiler button {
+  display: block;
+  justify-content: center;
+  align-items: center;
+  margin-left: 17px;
+  margin-top: 25px;
+  width: 250px;
+  font-size: 25px;
+  border: 0 solid gray;
+  border-radius: 8px;
+}
+.bilgiler button:hover {
+  border: 2px solid gray;
+}
