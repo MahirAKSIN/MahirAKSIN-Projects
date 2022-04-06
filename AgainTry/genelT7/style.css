@@ -1,0 +1,19 @@
+#content,
+#divclick {
+  background-color: darkkhaki;
+  border: 1px solid darkolivegreen;
+  text-align: center;
+  padding: 10px;
+  font-size: 35px;
+}
+#content {
+  padding: 95px;
+  font-size: 5vh;
+  color: white;
+  display: block;
+}
+h1 {
+  color: red;
+
+  text-align: center;
+}
