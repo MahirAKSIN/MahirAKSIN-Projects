@@ -1,0 +1,12 @@
+
+h1,
+p,
+body {
+  margin: 0;
+
+  padding: 0;
+  box-sizing: border-box;
+  color: blue;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
