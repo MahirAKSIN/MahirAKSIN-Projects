@@ -1,0 +1,47 @@
+﻿@model List<MobilyaShowDetails.Models.Product>
+
+
+@{
+    ViewBag.Title = "Products";
+    Layout = "_Layout";
+
+}
+
+
+<div class="container-fluid mt-4">
+    <div class="row g-0 d-flex justify-content-center align-content-center align-items-center ">
+        @foreach (var p in Model)
+        {
+            <div class="d-flex card bg-info justify-content-center align-content-center ms-4 h-50" style="width: 19rem;margin-bottom:25px">
+                <img src="./resim/dolap.jpg" class="card-img-top img-fluid rounded-start" alt="...">
+                <div class="d-block justify-content-between align-text-top w-auto mx-auto me-auto">
+                    <div class="card-body  bg-secondary d-flex flex-column align-items-center justify-content-around h-auto" style="width: 300px">
+                        <h5 class="card-title">@ViewBag.Title</h5>
+                        <p class="card-text fs-6"><span>Urun ID :</span>@p.ID</p>
+                        <p class="card-text fs-6"><span>Aciklama:</span>@p.ProductDetail</p>
+                        <p><span>Urun Adi : </span> @p.ProductName</p>
+                        <p><span>Fiyat : </span> @p.Price</p>
+
+                        <ul class="list-group list-group-flush bg-light rounded-3">
+                            <li class="list-group-item"><span>Urun Adedi : </span>3</li>
+                            <li class="list-group-item"><span>Urun Forum: </span>+30</li>
+                            <li class="list-group-item"><span>Urun Bilgisi : </span></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card-body ">
+                    <button class="rounded-3 " style="background-color:azure ;border:0px"><a href="@Url.ActionLink("index","Home")" class="card-link text-decoration-none">Anasayfa dön</a></button>
+                    <button class="rounded-3" style="background-color:azure ;border:0px"><a href="/product/GetProductDetail/@p.ID" class="card-link text-decoration-none">Detay Gör</a></button>
+
+                </div>
+            </div>
+
+        }
+
+
+    </div>
+</div>
+
+
+
+

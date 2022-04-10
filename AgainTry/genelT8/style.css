@@ -1,0 +1,15 @@
+.box{
+    background-color: red;
+    font-size: 25px;
+    border: 1px solid grey;
+    align-items: center;
+    color: yellow;
+}
+
+.content{
+    background-color: goldenrod;
+    font-size: 25px;
+    border: 1px solid grey;
+    align-items: center;
+    color: red;
+}

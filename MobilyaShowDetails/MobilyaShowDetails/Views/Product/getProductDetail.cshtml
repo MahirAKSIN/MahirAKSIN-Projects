@@ -1,0 +1,40 @@
+﻿@model List<MobilyaShowDetails.Models.Product>
+
+@{
+    MobilyaShowDetails.Models.Product p = ViewBag.Product;
+    ViewBag.Title = "Product Details";
+    Layout = "_Layout";
+
+
+
+}
+
+<div class="container mt-4">
+    <div class="row  ">
+        <div class="card g-0 d-flex justify-content-center align-content-center flex-column ">
+            <div class="col-md-4  " style="margin-left:400px">
+                <img src="~/resim/dolap.jpg" class="card-img-top img-fluid rounded-start " alt="...">
+            </div>
+            <div class="col-md-4" style="margin-left:400px">
+                <div class="card-body ">
+                    <p class="card-text d-flex justify-content-around align-items-center">@p.ProductDetail</p>
+                    <div class="d-flex justify-content-around align-items-center">
+                        <button class="rounded-3 " style=" background-color:antiquewhite ;border:0px">
+                            <a href="#" class="card-link text-decoration-none">Satın al</a>
+                        </button>
+                        <button class="rounded-3 " style=" background-color:antiquewhite ;border:0px">
+                            <a href="@Url.ActionLink("index","Home")" class="card-link text-decoration-none d-flex justify-content-center align-items-center text-align-center" ">Anasayfa dön</a>
+                        </button>
+                        <button class="rounded-3 " style=" background-color:antiquewhite ;border:0px">
+                            <a href="@Url.ActionLink("index","Product")" class="card-link text-decoration-none">Urun Sayfasına Dön</a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
