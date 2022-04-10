@@ -1,0 +1,32 @@
+﻿@model List<DersBlogSite.Models.Lessson>
+
+<ul>
+    @{
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Lesson Name</th>
+                    <th scope="col">Categori</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var lesson in Model)
+                {
+                    <tr>
+                        <th scope="col">@lesson.ID</th>
+                        <th scope="col">@lesson.LessontName</th>
+                        <th scope="col">@lesson.Category</th>
+                        <th><input type="button" value="Kaldır" class="bg-danger rounded" /></th>
+                    </tr>
+
+                }
+
+
+
+            </tbody>
+        </table>
+    }
+    }
+</ul>
