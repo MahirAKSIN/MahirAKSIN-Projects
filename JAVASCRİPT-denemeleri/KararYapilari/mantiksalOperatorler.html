@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let price = "100"
+        // == içerik eşitse true döner
+        console.log("== :", price == 1)       //false
+        console.log("== :", price == 100)     //true
+        // === içerik ve tür eşitse true döner
+        console.log("=== :", price === 1)      //false
+        console.log("=== :", price === 100)    //false tür eşit değil
+
+        let user = "guest"
+        console.log("user = guest",user != "guest") // false
+
+        console.log(" price < 100 ", price <= 100)  // true  price = 100
+
+        price = 0
+
+        console.log( price > 0 && user == "guest") //false çünkü price 0 dan büyük olmalı
+
+        console.log( price > 0 || user == "guest") //true çünkü 1 tane true yeterli
+
+        console.log( !( price >= 0 && user == "guest" )) //  !(true && true) = false gösterecek
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

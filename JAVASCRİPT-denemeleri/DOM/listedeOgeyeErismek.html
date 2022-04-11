@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+  <ul id="list">
+    <li>Lorem.</li>
+    <li>Sunt.</li>
+    <li>Fuga.</li>
+  </ul>
+  <script>
+         let item = document.querySelector("ul#list>li:last-child")  
+        // li etiketinin son elemanını atadık
+        // first-child ile ilk elemanını alabilirdik
+        console.log(item)
+        console.log(item.innerHTML) //içerisindeki bilgiye ulaşmış olduk
+
+        item.innerHTML = "Son eleman" //Elemanımızı değiştirmiş olduk
+
+        let ulDOM = document.querySelector("ul#list") // etiketi ulDOM değişkenine attık
+        let liDOM = document.createElement("li")      //yeni bir li etiketi oluşturup atadık
+
+        liDOM.innerHTML = "Kendi oluşturduğum liste elemanı"
+
+        //ulDOM.append(liDOM) //append ile son eleman olarak atama sağladık
+        ulDOM.prepend(liDOM)  //prepend ile ilk eleman olarak atama yaptık
+
+  </script>
+</body>
+</html>

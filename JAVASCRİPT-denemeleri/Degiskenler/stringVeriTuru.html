@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let firstName = "hilal"
+        let email = "hilal@kodluyoruz.org"
+        let lastName = "OZTURK"
+
+        console.log(firstName[0]); // karakter alma
+        console.log(firstName.charAt(4)) // diğer bir karakter alma yöntemi
+
+        console.log(firstName.toUpperCase())          //tüm harfleri büyütüyor
+        console.log(firstName.toLowerCase())          //tüm harfleri küçültüyor
+        console.log(email.search("@"))                //@ karakteri nerede 5.index
+        console.log(email[5])                         //emailin 5. karakteri = @
+        console.log(email.search("olmayan kelime"))   //içinde bulunmayan bir arama yaptığımızda -1 alırız
+        console.log(email.slice(1,10))                //1. index ile 10. index e kadar olanı al 
+        console.log(email.slice(5))                   //5den sonrasını al -> DOMAIN bilgisi
+        let DOMAIN = email.slice(email.search("@")+1) //email @ karakterinden sonrasını al
+        console.log(DOMAIN)
+        console.log(DOMAIN.indexOf("."))              //indexOf search ile aynı işlevi görüyor
+        console.log(DOMAIN.slice(0,DOMAIN.indexOf("."))) //0 dan "." gördüğün yere kadar al
+        email = email.replace('kodluyoruz.org' , 'gmail.com') //emailin içinde  yer değişikliği yaptık
+        console.log(email)
+        console.log(email.includes("asdg"))           //içinde var mı boolean tipi dönüşüm alırız ->false
+        console.log(email.includes(".com"))           //true
+        console.log(email.endsWith("@"))              //ne ile bitti - >false   startsWith = ne ile başladı
+        console.log(email.endsWith("gmail.com"))      //true
+
+        console.log(`
+        ${firstName[0].toUpperCase()}${firstName.slice(1).toLowerCase()}
+        ${lastName[0].toUpperCase()}${lastName.slice(1).toLowerCase()}
+             `)
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

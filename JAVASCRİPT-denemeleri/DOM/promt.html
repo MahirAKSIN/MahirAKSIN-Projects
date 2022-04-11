@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+         <h1 id="greeting">Wissen</h1>
+    <script>
+        //alert ile kullanıcıya uyarı gösterebiliyoruz 
+        //prompt ile kullanıcıdan veri alabiliyoruz
+        let  fullName = prompt("Bir değer giriniz" , )   
+        // veriyi kullanıcıdan alıp istediğimiz bir yere yazdırabiliyoruz
+        console.log(fullName)
+        let greeting = document.querySelector("#greeting") //etiketi alıyoruz
+        console.log(greeting)
+        greeting.innerHTML = `${greeting.innerHTML} <small style = "color : red">${fullName}</small>` //içindeki bilgiyi değiştiriyoruz
+    </script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    <script>
+        let  userName = "hilal"
+        const DOMAIN = "kodluyoruz.org"
+        let email = userName + "@" + DOMAIN
+
+        console.log("Merhaba ",userName," email adresin :",email)
+
+        //template literals -> en önemli özelliği aynı satırda kalmana gerek yok , ${} bu ifade içinde direk değişkenleri çağırabiliriz fonk , değişken , hesaplama vs yapaliriz
+
+        let info = `
+        Merhaba ${userName}
+        email adresin :${email}
+        mail adresinin uzunluğu :${email.lenght}
+        borcunuz :${(5+2)*2}
+        kısa isminiz :${userName[0]}
+        `
+        console.log(info)
+        //Alıştırma : body etiketi içine yazmam gerekti innerHTML kullanabilmek için
+        
+                const ad = `Fırtına`
+                const yazar = `Shakespeare`
+                const tarih = 1610
+                  
+             
+                const bookTable =
+                    `
+                    <table border>
+                <tbody>
+                    <tr>
+                    <td>Kitap</td>
+                    <td>${ad}</td>
+                    </tr>
+                <tr>
+                    <td>Yazar</td>
+                    <td>${yazar}</td>
+                    </tr>
+                    <tr>
+                    <td>Tarih</td>
+                    <td>${tarih}</td>
+                    </tr>
+                 </tbody>
+                </table>
+                `;
+                document.body.innerHTML = bookTable;
+
+    </script>
+</body>
+</html>

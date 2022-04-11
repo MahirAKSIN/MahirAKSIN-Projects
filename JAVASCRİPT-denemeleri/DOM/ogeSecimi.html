@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    <h2 id="title">Merhaba Dunya</h2>
+    <ul id="link">
+        <li>
+            <a href="#">
+                Link
+            </a>      
+        </li>
+    </ul>
+
+    <script>
+        //Öğe seçiimi 2 şekilde gerçekleşiyor getElementById  -  querySelector
+        //İkisi arasındaki fark querySelector direk bulmanı sağlıyor
+        let title = document.getElementById("title") //id si title olan etiketi atadık
+        console.log(title)
+        console.log(title.innerHTML) //innerHTML ile id si title olan etiketin içeriğini aldık
+        title.innerHTML = "Değişen bilgi" //id si title olan etiketin içeriğini değiştirdik
+        console.log(title.innerHTML) 
+        let link = document.querySelector("ul#link>li>a") // querySelector kullanırken yolunu tarif edebiliyoruz yada id verebiliyoruz
+        link.innerHTML += "Değişen link" //değer üzerinde oynama yapabiliyoruz
+        console.log(link.innerHTML)
+        link.style.color = "pink" //css uygulayabiliyoruz
+        link.classList.add("classEkledim")
+
+    </script>
+    
+</body>
+</html>
