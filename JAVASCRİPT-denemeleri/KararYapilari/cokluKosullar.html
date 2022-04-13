@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  
+</head>
+<body>
+     <h3 id="info"> Merhaba </h3>  
+     <script>
+        let username = "hilal"
+        let age = 23
+        let info = document.querySelector("h3#info") //id si info olan h3 etiketini al
+
+        console.log(info)
+
+        if( username && age > 18){ //isim dolu ve yas uygun case i sağlıyorsa = true 
+        info.innerHTML =  "ehliyet alabilir" 
+        }
+        else if( !username ){ //username boşsa = true olur
+        info.innerHTML = "kullanıcı adınız yok"
+        }
+        else if( !( age > 18) ){ //yaş 18 den küçükse = true 
+        info.innerHTML = "ehliyet almak için yaşınız küçük"
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+﻿@model MobilyaShowDetails.Controllers.ContactController;
+
+
+
+@{
+    ViewBag.Title = "Contact";
+    Layout = "_Layout";
+}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contact</title>
+</head>
+<body>
+    <div class="d-flex justify-content-center align-items-center m-5 p-5 fw-bold">
+        <p class="d-block justify-content-center align-content-center  align-items-center m-5 p-5 fs-2 bg-dark ">
+            <input type="text" placeholder="Isim giriniz..." /><br><br>
+            <input type="email" placeholder="Email giriniz..." /><br><br>
+            <textarea class="text-break fs-1 " type="text" placeholder="Mesaj giriniz..."></textarea><br><br>
+            <button class="fs-1 bg-danger p-2 text-primary" type="submit" value="Gonder" name="Sumbmit">Submit</button>
+            <button class="fs-3 bg-danger p-3 mt-3" type="button" value="Gonder" name="geri"><a class="text-decoration-none" href="@Url.ActionLink("index","home")">Anasayfaya Dön</a></abbr></button>
+
+
+        </p>
+
+    </div>
+</body>
+</html>

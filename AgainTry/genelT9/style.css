@@ -1,0 +1,18 @@
+.box * {
+  font-size: 25px;
+  border: 1px solid grey;
+  align-items: center;
+  color: black;
+  width: 40%;
+  height: 300px;
+  padding: 5px;
+  margin: 15px;
+  display: block;
+}
+.content {
+  background-color: goldenrod;
+  font-size: 25px;
+  border: 1px solid grey;
+  align-items: center;
+  color: red;
+}

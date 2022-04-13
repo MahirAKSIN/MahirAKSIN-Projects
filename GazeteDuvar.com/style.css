@@ -1,0 +1,116 @@
+.banner{
+    position: fixed;
+    z-index: 1;
+    background-color: #272829; 
+    height: 70px;
+}
+
+.nav-link{
+    color: white !important;
+    font-weight: bold !important;
+}
+.carousel-indicators button:hover{
+    background-color: #f06730 !important;
+
+}
+
+
+.carousel-control-next1sa{
+    width: 15%;
+    background-color: black;
+    color: black;
+    text-align: center;
+    background: 0 0;
+    border: 0;
+    opacity: .5;
+    transition: opacity .15s ease;
+}
+.carousel-indicators button{
+    cursor: pointer !important;
+    height: 20px !important;
+    width: 20px !important;
+    margin: 0 3px !important;
+    background-color: #b7b7b7 !important;
+    border-radius: 50% !important;
+    display: inline-block !important;
+    transition: 0.5s !important;
+    opacity: 1 !important;
+
+}
+.carousel-indicators{
+    margin-bottom: 0px !important;
+    position: relative !important;
+ }
+ .carousel-indicators .active{
+     background-color: #f06730 !important;
+
+ }
+ #table1, #table2, #table3, #table4 {
+    display: none;
+}
+.carousel-control-next, .carousel-control-prev{
+    background-color: black !important;
+}
+.card{
+    border: none;
+}
+.card-title,.card-text{
+    font-size: 22.4px;
+    font-weight: bold;
+    color: #000;
+}
+.card-title{
+    text-align: center;
+}
+.ilgitext,.yazarlar{
+    
+    font-weight: bold; 
+    font-size: 1.125rem; 
+    color: #000; 
+    font-family: Roboto,sans-serif;
+}
+.ilginiz p{
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    font-size: 18px;
+    color: #000;
+    font-family: sans-serif;
+    padding-top: 8px;
+    font-weight: bold;
+}
+.yazarlar img{
+    margin: 0px auto;
+    border-radius: 100%;
+    width: 100px;
+    height: 100px;
+}
+.footer #x1{
+   
+width:130px ;
+height:35px ;
+
+}
+footer{
+    background-color: #131415;
+    height: 300px;
+}
+.footersag li{
+    list-style: none;
+}
+#ul1 a{
+    font-size: 16px;
+    color: #f06730;
+    text-decoration: none;
+}
+#ul2 a{
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+}
+.mobil img{
+    width:102px ;
+    height:34px ;
+
+}
+.mobil{
+    font-weight: bold;
+}
