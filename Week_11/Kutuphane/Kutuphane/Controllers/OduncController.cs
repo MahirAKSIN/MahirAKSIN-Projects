@@ -5,26 +5,27 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using EFCore_002.Models;
+using Kutuphane.Models;
 
-namespace EFCore_002.Controllers
+namespace Kutuphane.Controllers
 {
-    public class BolumlerController : Controller
+    public class OduncController : Controller
     {
-        private readonly HastaneSabahContext _context;
+        private readonly KutuphaneSabahContext _context;
 
-        public BolumlerController(HastaneSabahContext context)
+        public OduncController(KutuphaneSabahContext context)
         {
             _context = context;
         }
 
-        // GET: Bolumlers
+        // GET: Odunc
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Bolumlers.ToListAsync());
+            var kutuphaneSabahContext = _context.Oduncs.Include(o => o.KitapIsbnNavigation).Include(o => o.Uye);
+            return View(await kutuphaneSabahContext.ToListAsync());
         }
 
-        // GET: Bolumlers/Details/5
+        // GET: Odunc/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -32,39 +33,45 @@ namespace EFCore_002.Controllers
                 return NotFound();
             }
 
-            var bolumler = await _context.Bolumlers
+            var odunc = await _context.Oduncs
+                .Include(o => o.KitapIsbnNavigation)
+                .Include(o => o.Uye)
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (bolumler == null)
+            if (odunc == null)
             {
                 return NotFound();
             }
 
-            return View(bolumler);
+            return View(odunc);
         }
 
-        // GET: Bolumlers/Create
+        // GET: Odunc/Create
         public IActionResult Create()
         {
+            ViewData["KitapIsbn"] = new SelectList(_context.Kitaplars, "Isbn", "Isbn");
+            ViewData["UyeId"] = new SelectList(_context.Uyelers, "Id", "Id");
             return View();
         }
 
-        // POST: Bolumlers/Create
+        // POST: Odunc/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,BolumAd")] Bolumler bolumler)
+        public async Task<IActionResult> Create([Bind("Id,UyeId,KitapIsbn,VerilisTarihi,TeslimTarihi,Iptal")] Odunc odunc)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(bolumler);
+                _context.Add(odunc);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(bolumler);
+            ViewData["KitapIsbn"] = new SelectList(_context.Kitaplars, "Isbn", "Isbn", odunc.KitapIsbn);
+            ViewData["UyeId"] = new SelectList(_context.Uyelers, "Id", "Id", odunc.UyeId);
+            return View(odunc);
         }
 
-        // GET: Bolumlers/Edit/5
+        // GET: Odunc/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -72,22 +79,24 @@ namespace EFCore_002.Controllers
                 return NotFound();
             }
 
-            var bolumler = await _context.Bolumlers.FindAsync(id);
-            if (bolumler == null)
+            var odunc = await _context.Oduncs.FindAsync(id);
+            if (odunc == null)
             {
                 return NotFound();
             }
-            return View(bolumler);
+            ViewData["KitapIsbn"] = new SelectList(_context.Kitaplars, "Isbn", "Isbn", odunc.KitapIsbn);
+            ViewData["UyeId"] = new SelectList(_context.Uyelers, "Id", "Id", odunc.UyeId);
+            return View(odunc);
         }
 
-        // POST: Bolumlers/Edit/5
+        // POST: Odunc/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,BolumAd")] Bolumler bolumler)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,UyeId,KitapIsbn,VerilisTarihi,TeslimTarihi,Iptal")] Odunc odunc)
         {
-            if (id != bolumler.Id)
+            if (id != odunc.Id)
             {
                 return NotFound();
             }
@@ -96,12 +105,12 @@ namespace EFCore_002.Controllers
             {
                 try
                 {
-                    _context.Update(bolumler);
+                    _context.Update(odunc);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!BolumlerExists(bolumler.Id))
+                    if (!OduncExists(odunc.Id))
                     {
                         return NotFound();
                     }
@@ -112,10 +121,12 @@ namespace EFCore_002.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(bolumler);
+            ViewData["KitapIsbn"] = new SelectList(_context.Kitaplars, "Isbn", "Isbn", odunc.KitapIsbn);
+            ViewData["UyeId"] = new SelectList(_context.Uyelers, "Id", "Id", odunc.UyeId);
+            return View(odunc);
         }
 
-        // GET: Bolumlers/Delete/5
+        // GET: Odunc/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -123,30 +134,32 @@ namespace EFCore_002.Controllers
                 return NotFound();
             }
 
-            var bolumler = await _context.Bolumlers
+            var odunc = await _context.Oduncs
+                .Include(o => o.KitapIsbnNavigation)
+                .Include(o => o.Uye)
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (bolumler == null)
+            if (odunc == null)
             {
                 return NotFound();
             }
 
-            return View(bolumler);
+            return View(odunc);
         }
 
-        // POST: Bolumlers/Delete/5
+        // POST: Odunc/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var bolumler = await _context.Bolumlers.FindAsync(id);
-            _context.Bolumlers.Remove(bolumler);
+            var odunc = await _context.Oduncs.FindAsync(id);
+            _context.Oduncs.Remove(odunc);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool BolumlerExists(int id)
+        private bool OduncExists(int id)
         {
-            return _context.Bolumlers.Any(e => e.Id == id);
+            return _context.Oduncs.Any(e => e.Id == id);
         }
     }
 }

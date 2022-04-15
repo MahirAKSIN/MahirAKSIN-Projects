@@ -9,22 +9,23 @@ using EFCore_002.Models;
 
 namespace EFCore_002.Controllers
 {
-    public class BolumlerController : Controller
+    public class DoktorlarController : Controller
     {
         private readonly HastaneSabahContext _context;
 
-        public BolumlerController(HastaneSabahContext context)
+        public DoktorlarController(HastaneSabahContext context)
         {
             _context = context;
         }
 
-        // GET: Bolumlers
+        // GET: Doktorlar
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Bolumlers.ToListAsync());
+            var hastaneSabahContext = _context.Doktorlars.Include(d => d.Bolum);
+            return View(await hastaneSabahContext.ToListAsync());
         }
 
-        // GET: Bolumlers/Details/5
+        // GET: Doktorlar/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -32,39 +33,42 @@ namespace EFCore_002.Controllers
                 return NotFound();
             }
 
-            var bolumler = await _context.Bolumlers
+            var doktorlar = await _context.Doktorlars
+                .Include(d => d.Bolum)
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (bolumler == null)
+            if (doktorlar == null)
             {
                 return NotFound();
             }
 
-            return View(bolumler);
+            return View(doktorlar);
         }
 
-        // GET: Bolumlers/Create
+        // GET: Doktorlar/Create
         public IActionResult Create()
         {
+            ViewData["BolumId"] = new SelectList(_context.Bolumlers, "Id", "BolumAd");
             return View();
         }
 
-        // POST: Bolumlers/Create
+        // POST: Doktorlar/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,BolumAd")] Bolumler bolumler)
+        public async Task<IActionResult> Create([Bind("Id,SicilNo,AdSoyad,Tel,Mail,BolumId")] Doktorlar doktorlar)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(bolumler);
+                _context.Add(doktorlar);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(bolumler);
+            ViewData["BolumId"] = new SelectList(_context.Bolumlers, "Id", "BolumAd", doktorlar.BolumId);
+            return View(doktorlar);
         }
 
-        // GET: Bolumlers/Edit/5
+        // GET: Doktorlar/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -72,22 +76,23 @@ namespace EFCore_002.Controllers
                 return NotFound();
             }
 
-            var bolumler = await _context.Bolumlers.FindAsync(id);
-            if (bolumler == null)
+            var doktorlar = await _context.Doktorlars.FindAsync(id);
+            if (doktorlar == null)
             {
                 return NotFound();
             }
-            return View(bolumler);
+            ViewData["BolumId"] = new SelectList(_context.Bolumlers, "Id", "BolumAd", doktorlar.BolumId);
+            return View(doktorlar);
         }
 
-        // POST: Bolumlers/Edit/5
+        // POST: Doktorlar/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,BolumAd")] Bolumler bolumler)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,SicilNo,AdSoyad,Tel,Mail,BolumId")] Doktorlar doktorlar)
         {
-            if (id != bolumler.Id)
+            if (id != doktorlar.Id)
             {
                 return NotFound();
             }
@@ -96,12 +101,12 @@ namespace EFCore_002.Controllers
             {
                 try
                 {
-                    _context.Update(bolumler);
+                    _context.Update(doktorlar);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!BolumlerExists(bolumler.Id))
+                    if (!DoktorlarExists(doktorlar.Id))
                     {
                         return NotFound();
                     }
@@ -112,10 +117,11 @@ namespace EFCore_002.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(bolumler);
+            ViewData["BolumId"] = new SelectList(_context.Bolumlers, "Id", "BolumAd", doktorlar.BolumId);
+            return View(doktorlar);
         }
 
-        // GET: Bolumlers/Delete/5
+        // GET: Doktorlar/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -123,30 +129,31 @@ namespace EFCore_002.Controllers
                 return NotFound();
             }
 
-            var bolumler = await _context.Bolumlers
+            var doktorlar = await _context.Doktorlars
+                .Include(d => d.Bolum)
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (bolumler == null)
+            if (doktorlar == null)
             {
                 return NotFound();
             }
 
-            return View(bolumler);
+            return View(doktorlar);
         }
 
-        // POST: Bolumlers/Delete/5
+        // POST: Doktorlar/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var bolumler = await _context.Bolumlers.FindAsync(id);
-            _context.Bolumlers.Remove(bolumler);
+            var doktorlar = await _context.Doktorlars.FindAsync(id);
+            _context.Doktorlars.Remove(doktorlar);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool BolumlerExists(int id)
+        private bool DoktorlarExists(int id)
         {
-            return _context.Bolumlers.Any(e => e.Id == id);
+            return _context.Doktorlars.Any(e => e.Id == id);
         }
     }
 }

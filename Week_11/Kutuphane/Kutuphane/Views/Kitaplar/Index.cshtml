@@ -1,0 +1,74 @@
+﻿@model IEnumerable<Kutuphane.Models.Kitaplar>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .a:hover {
+        background-color: red;
+        font-size: 15px;
+        border-radius: 3px solid red;
+    }
+</style>
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Ad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SayfaSayisi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Stok)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tur)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.YayinEvi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Yazar)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ad)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SayfaSayisi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Stok)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Tur.TurAd)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.YayinEvi.Ad)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Yazar.AdSoyad)
+                </td>
+                <td>
+                    <a class="btn btn-danger border border-warning" asp-action="Edit" asp-route-id="@item.Isbn">Edit</a> 
+                    <a class="btn btn-success border border-warning"" asp-action="Details" asp-route-id="@item.Isbn">Details</a> 
+                    <a class="btn btn-dark text-white border border-warning"" asp-action="Delete" asp-route-id="@item.Isbn">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
