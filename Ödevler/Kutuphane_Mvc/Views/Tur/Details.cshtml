@@ -1,0 +1,15 @@
+@model EF_Core_MVC_Code.Models.Turler
+@{
+    ViewData["Title"] = "Kitap Türleri";
+}
+
+<h1>Kitap Türü Detayları</h1>
+
+<div>
+    <h4>Kitap Türü</h4>
+    <h5>Tür ID: </h5>
+    <p>@Model.Id</p>
+    <h5>Kitap Türü:</h5>
+    <p>@Model.TurAd</p>
+</div>
+<a asp-action="Index">Kitap Türlerine dön</a>

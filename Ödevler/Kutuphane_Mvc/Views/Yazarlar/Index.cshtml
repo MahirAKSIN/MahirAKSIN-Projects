@@ -1,0 +1,12 @@
+@model List<Yazarlar>
+@{
+    ViewData["Title"] = "Index";
+}
+
+@foreach (var item in Model)
+{
+    <div>
+        <p>@item.AdSoyad</p>
+        <a asp-action="Details" asp-route-id="@item.Id">Detay</a>
+    </div>
+}
