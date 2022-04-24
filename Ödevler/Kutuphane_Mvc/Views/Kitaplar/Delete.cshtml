@@ -4,39 +4,40 @@
     ViewData["Title"] = "Kitap";
 }
 
+<div class="text-center">
+    <h1 class=" display-3">Kitap Sil</h1>
+</div>
 
 
-<h1 class=" display-3">Kitap Sil</h1>
-<a asp-action="Index" class="btn btn-outline-success my-2"><span class="mx-2">Kitalara Dön</span><i
-        class="bi bi-book"></i></a>
 <br>
-<table class="table table-success table-striped table-hover w-50">
-    <thead>
-        <tr>
-            <td>Kitap ISBN</td>
-            <td>Kitap Adi</td>
-            <td></td>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>@Model.Isbn</td>
-            <td>@Model.Ad</td>
-            <td>
-                <form  asp-action="Delete">
-                    <input type="hidden" asp-for="Isbn">
-                    <input class="btn btn-outline-success " type="submit" value="Kitap Sil">
-                    <a asp-action="Index" class="btn btn-outline-success "><i
-                            class="bi bi-arrow-counterclockwise "></i></a>
-                </form>
-            </td>
-        </tr>
-    </tbody>
 
-</table>
+<div class="container d-flex justify-content-center">
+    <table class="table table-success table-striped table-hover w-75">
+        <thead>
+            <tr>
+                <td>Kitap ISBN</td>
+                <td>Kitap Adi</td>
+                <td>Yapılacak İşlem</td>
+                <td></td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>@Model.Isbn</td>
+                <td>@Model.Ad</td>
+                <td>
+                    <form asp-action="Delete">
+                        <input type="hidden" asp-for="Isbn">
+                        <input class="btn btn-outline-success " type="submit" value="Kitap Sil">
+                        <a asp-action="Index" class="btn btn-outline-success "><i
+                                class="bi bi-arrow-counterclockwise "></i></a>
+                        <a asp-action="Index" class="btn btn-outline-success my-2"><span class="mx-2">Kitaplara
+                                Dön</span><i class="bi bi-book"></i></a>
+                    </form>
+                </td>
+            </tr>
+        </tbody>
 
-
-<div>
-
+    </table>
 
 </div>

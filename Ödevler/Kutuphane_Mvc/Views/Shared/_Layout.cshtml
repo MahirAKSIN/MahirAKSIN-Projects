@@ -14,7 +14,8 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><i class="bi bi-book "></i>Kütüphane</a>
+                <a class="navbar-brand my-4" asp-area="" asp-controller="Home" asp-action="Index"><i
+                        class="bi bi-book my-4"></i>Kütüphane</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse"
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -26,7 +27,8 @@
                                 asp-action="Index">Anasayfa</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Tur" asp-action="Index">Kitap  Türleri</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Tur" asp-action="Index">Kitap
+                                Türleri</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Kitaplar" asp-action="Index">Kitap
@@ -37,15 +39,16 @@
             </div>
         </nav>
     </header>
-    <div class="container">
+    <div class="container-fluid bg-danger text-white ">
         <main role="main" class="pb-3">
             @RenderBody()
+
         </main>
     </div>
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2022 - EF_Core_MVC_Code - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; 2022 -Wissen Kutuphanesi- <a asp-area="" asp-controller="Home" asp-action="Privacy">Mahir AKSiN</a>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

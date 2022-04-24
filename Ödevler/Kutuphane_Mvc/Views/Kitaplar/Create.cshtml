@@ -1,0 +1,33 @@
+@model Kitaplar
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h4 class="display-4 text-center">Kitap Ekleme</h4>
+
+
+
+<div class="container w-50 bg-danger">
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Create">
+
+                <div class="form-group">
+                    <label class="control-label">Kitap Isbn </label>
+                    <input type="text " asp-for="Isbn" class="form-control">
+                    <label class="control-label">Kitap Adi</label>
+                    <input type="text" asp-for="Ad" class="form-control">
+
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Kaydet" class="btn btn-outline-dark text-white">
+                    <a asp-action="Index"><i class="bi bi-arrow-counterclockwise bg-info btn btn-sm p-2 px-2"></i></a>
+                </div>
+
+            </form>
+        </div>
+
+
+    </div>
+
+</div>

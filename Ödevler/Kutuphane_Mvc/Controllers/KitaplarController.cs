@@ -63,5 +63,24 @@ namespace EF_Core_MVC_Code.Controllers
             return RedirectToAction("Index");
         }
 
+        [HttpGet]
+        public IActionResult Create()
+        {
+            return View();
+
+        }   
+        
+        [HttpPost]
+        public IActionResult Create(Kitaplar kitap)
+        {
+
+            if (ModelState.IsValid)
+            {
+                _context.Add(kitap);
+                _context.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(kitap);
+        }
     }
 }

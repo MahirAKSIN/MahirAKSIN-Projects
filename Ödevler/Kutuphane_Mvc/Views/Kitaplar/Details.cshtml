@@ -1,30 +1,28 @@
 @model Kitaplar
 @{
-    ViewData["Title"] = @Model.Ad + " adlı kitabın detayları";
+  ViewData["Title"] = @Model.Ad + " adlı kitabın detayları";
 }
 
-<h3>@Model.Ad adlı kitabın detayları</h3>
+<h3 class="text-center">@Model.Ad Detayları</h3>
 <hr>
-<div>
-    <h6>Kitabın ISBN:</h6>
-    <p>@Model.Isbn</p>
 
-    <h6>Kitabın Adı:</h6>
-    <p>@Model.Ad</p>
+<div class="container w-50 bg-dark">
 
-    <h6>Kitabın Sayfa Sayısı:</h6>
-    <p>@Model.SayfaSayisi</p>
+    <div class="row">
+        <div class="col-6 coli-lg-6 text-danger">
+            <p>Kitabın ISBN : @Model.Isbn</p>
+            <p>Kitabın Adı : @Model.Ad</p>
+            <p>Kitabın Sayfa Sayısı : @Model.SayfaSayisi</p>
+            <p>Kitabın Stok Miktarı : @Model.Stok</p>
+        </div>
+        <div class="col-6 col-lg-6 text-danger">
+            <p>Kitabın Türü : @Model.Turler.TurAd</p>
+            <p>Kitabın Yazarı : @Model.Yazarlar.AdSoyad</p>
+            <p>Kitabın Yayınevi : @Model.YayinEvleri.Ad</p>
+            <a asp-action="Index" class="btn  btn-outline-primary my-2 w-25"><i
+                    class="bi bi-arrow-counterclockwise"></i></a>
 
-    <h6>Kitabın Stok Miktarı:</h6>
-    <p>@Model.Stok</p>
-
-    <h6>Kitabın Türü:</h6>
-    <p>@Model.Turler.TurAd</p>
-    
-    <h6>Kitabın Yazarı:</h6>
-    <p>@Model.Yazarlar.AdSoyad</p>
-    
-    <h6>Kitabın Yayınevi:</h6>
-    <p>@Model.YayinEvleri.Ad</p>
-
+        </div>
+    </div>
 </div>
+<div>

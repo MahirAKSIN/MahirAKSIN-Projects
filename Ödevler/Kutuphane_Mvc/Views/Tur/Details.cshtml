@@ -1,15 +1,28 @@
 @model EF_Core_MVC_Code.Models.Turler
 @{
+
+
+
     ViewData["Title"] = "Kitap Türleri";
 }
+</style>
+<h1 class="text-center m-3 mt-3">Kitap Tür Detayı</h1>
+<div class="container d-flex justify-content-center bg-danger  w-50 ">
+    <div class="text-center">
+        <h4 class="text-white">Kitap Türü</h4>
+        <hr>
+        <div class="d-inline-flex mt-3">
+            <h5 class="text-white">Tür ID : </h5>
+            <p>@Model.Id</p>
+        </div>
+        <hr>
+        <div class="d-inline-flex">
+            <h5 class="text-white">Kitap Tür Detayi : </h5>
+            <p>@Model.TurAd</p>
+        </div>
+        <hr>
 
-<h1>Kitap Türü Detayları</h1>
-
-<div>
-    <h4>Kitap Türü</h4>
-    <h5>Tür ID: </h5>
-    <p>@Model.Id</p>
-    <h5>Kitap Türü:</h5>
-    <p>@Model.TurAd</p>
+        <a asp-action="Index" class="btn btn-outline-dark text-white my-4">Kitap Türlerine dön<i
+                class="bi bi-arrow-counterclockwise m-3"></i> </a>
+    </div>
 </div>
-<a asp-action="Index">Kitap Türlerine dön</a>

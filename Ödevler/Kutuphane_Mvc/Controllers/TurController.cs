@@ -24,11 +24,14 @@ namespace EF_Core_MVC_Code.Controllers
         {
             return View(_context.Turlers.ToList());
         }
+
         public IActionResult Delete(int id)
         {
             var turSilme = _context.Turlers.Find(id);
             return View(turSilme);
         }
+        [HttpPost, ActionName("Delete")]
+
         public IActionResult DeleteConfirmed(int id)
         {
             var silinecekTur = _context.Turlers.Find(id);
@@ -36,6 +39,7 @@ namespace EF_Core_MVC_Code.Controllers
             _context.SaveChanges();
             return RedirectToAction("Index");
         }
+
         public IActionResult Details(int id)
         {
             var tur = _context.Turlers.Find(id);
@@ -43,49 +47,9 @@ namespace EF_Core_MVC_Code.Controllers
         }
         //GET-Kitap türlerini listele
 
-
         //GET-Kitap türü detayını göster
 
-
         //GET-Düzenlenecek kitabın bilgilerini göster
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
         [HttpGet]
         public IActionResult Edit(int id)

@@ -2,48 +2,64 @@
 @{
     ViewData["Title"] = "Edit";
 }
-<h5>@Model.Ad - Kitap Düzenleme Sayfası</h5>
+<h5 class="text-center">@Model.Ad -  Düzenleme Sayfası</h5>
 <hr>
 <form asp-action="Edit">
-    <div class="row">
-        <!--Bu kolonda Isbn, Ad,SayfaSayisi, Stok-->
-        <div class="col-md-4">
-            <div class="mb-3">
-                <label asp-for="Isbn" class="control-label">Isbn</label>
-                <input asp-for="Isbn" type="text" class="form-control">
+
+    <div class="contianer-fluid  d-flex justify-content-center w-100 bg-dark ">
+
+        <div class="row d-flex justify-content-center text-center">
+            <!--Bu kolonda Isbn, Ad,SayfaSayisi, Stok-->
+            <div class="col-md-6">
+                <div class="mb-3">
+                    <label asp-for="Isbn" class="control-label text-white ms-4 ">Isbn</label>
+                    <input asp-for="Isbn" type="text" class="form-control">
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Ad" class="control-label text-white ms-4">Kitap Adı</label>
+                    <input asp-for="Ad" type="text" class="form-control">
+                </div>
+                <div class="mb-3">
+                    <label asp-for="SayfaSayisi" class="control-label text-white ms-4">Sayfa Sayısı</label>
+                    <input asp-for="SayfaSayisi" type="text" class="form-control ">
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Stok" class="control-label text-white ms-4">Stok Miktarı</label>
+                    <input asp-for="Stok" type="text" class="form-control">
+                </div>
             </div>
-            <div class="mb-3">
-                <label asp-for="Ad" class="control-label">Kitap Adı</label>
-                <input asp-for="Ad" type="text" class="form-control">
+
+            <!--Bu kolonda Tür, Yazar,Yayınevi-->
+            <div class="col-md-6">
+                <div class="mb-3">
+                    <label asp-for="TurlerId" class="control-label text-white ms-4">Kitap Türü</label>
+                    <select asp-for="TurlerId" class="form-select    form-control" asp-items="ViewBag.Tur"></select>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="YazarlarId" class="control-label text-white ms-4">Yazar</label>
+                    <select asp-for="YazarlarId" class="form-select form-control" asp-items="ViewBag.Yazar"></select>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="YayinEvleriId" class="control-label text-white ms-4">Yayınevi</label>
+                    <select asp-for="YayinEvleriId" class="form-select form-control "
+                        asp-items="ViewBag.YayinEvi"></select>
+                </div>
+                <div class="mb-3">
+                    <button asp-action="Edit" type="submit" class="btn btn-success">Değişiklikleri Kaydet</button>
+                </div>
             </div>
-            <div class="mb-3">
-                <label asp-for="SayfaSayisi" class="control-label">Sayfa Sayısı</label>
-                <input asp-for="SayfaSayisi" type="text" class="form-control">
-            </div>
-            <div class="mb-3">
-                <label asp-for="Stok" class="control-label">Stok Miktarı</label>
-                <input asp-for="Stok" type="text" class="form-control">
-            </div>
+
         </div>
 
-        <!--Bu kolonda Tür, Yazar,Yayınevi-->
-        <div class="col-md-4">
-            <div class="mb-3">
-                <label asp-for="TurlerId" class="control-label">Kitap Türü</label>
-                <select asp-for="TurlerId" class="form-select    form-control" asp-items="ViewBag.Tur"></select>
-            </div>
-            <div class="mb-3">
-                <label asp-for="YazarlarId" class="control-label">Yazar</label>
-                <select asp-for="YazarlarId" class="form-select form-control" asp-items="ViewBag.Yazar"></select>
-            </div>
-            <div class="mb-3">
-                <label asp-for="YayinEvleriId" class="control-label">Yayınevi</label>
-                <select asp-for="YayinEvleriId" class="form-select form-control" asp-items="ViewBag.YayinEvi"></select>
-            </div>
-            <div class="mb-3">
-                <button asp-action="Edit" type="submit" class="btn btn-success">Değişiklikleri Kaydet</button>
-            </div>
-        </div>
+
+
+
+
+
 
     </div>
+
+
+
+
 </form>

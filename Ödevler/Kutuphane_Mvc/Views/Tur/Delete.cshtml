@@ -3,20 +3,31 @@
 
     ViewData["Title"] = "Kitap Türleri";
 }
-
 <h1 class=" text-center display-3">Kitap Türü Sil</h1>
+<hr>
 <br>
-<div class="text-center mt-3  px-3">
-    <h4>Kitap Türü</h4>
-    <h5>Tür ID: </h5>
-    <p>@Model.Id</p>
-    <h5>Kitap Türü:</h5>
-    <p>@Model.TurAd</p>
-    <form asp-action="Delete">
-        <input type="hidden" asp-for="Id">
-        <input type="submit" value="Kitap Türünü Sil"
-            class="btn btn-sm btn-danger rounded-3 border border-3 border-success">
-            <a asp-action="Index" type="btn" class="btn btn-sm btn-info"><i class="bi bi-arrow-counterclockwise"></i></a>
-    </form>
-    
+<div class="container-fluid w-50">
+    <div class="d-flex justify-content-center bg-danger">
+        <div class="d-block  text-center ">
+            <h4>Kitap Türü</h4>
+            <hr>
+            <h5>Tür ID: </h5>
+            <p>@Model.Id</p>
+            <hr>
+            <h5>Kitap Türü:</h5>
+            <p>@Model.TurAd</p>
+            <hr>
+            <form asp-action="Delete" class="m-3">
+                <input type="hidden" asp-for="Id">
+                <input type="submit" value="Kitap Türünü Sil"
+                    class="btn btn-sm btn-outline-primary text-white rounded-3 border border-3  ">
+                <a asp-action="Index" type="btn" class="btn btn-sm btn-info"><i
+                        class="bi bi-arrow-counterclockwise"></i></a>
+            </form>
+
+        </div>
+
+    </div>
+
+
 </div>
