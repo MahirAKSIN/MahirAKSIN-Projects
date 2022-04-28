@@ -12,6 +12,8 @@ namespace EF_Core_MVC_Code.Controllers
     public class KitaplarController : Controller
     {
         private readonly KutuphaneSabahContext _context;
+   
+
         public KitaplarController(KutuphaneSabahContext context)
         {
             _context = context;

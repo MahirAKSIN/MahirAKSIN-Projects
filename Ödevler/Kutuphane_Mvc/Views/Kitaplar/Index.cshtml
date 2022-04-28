@@ -25,14 +25,21 @@
                         <td>@kitap.Isbn</td>
                         <td>@kitap.Ad</td>
                         <td>
-                            <a class="btn btn-lg btn-outline-success " asp-action="Details" asp-route-id="@kitap.Isbn"><i
-                                class="bi bi-ticket-detailed"></i></a>
-                            <a class="btn btn-lg btn-outline-warning" asp-action="Edit" asp-route-id="@kitap.Isbn"><i
-                                class="bi bi-pencil-square"></i></a>
-                            <a class="btn btn-lg btn-outline-danger" asp-action="Delete" asp-route-id="@kitap.Isbn"><i
-                                class="bi bi-trash"></i></a>
+                            <a class="btn btn-lg btn-outline-success " asp-action="Details" asp-route-id="@kitap.Isbn">
+                                <i class="bi bi-ticket-detailed"></i>
+                            </a>
+                            <a class="btn btn-lg btn-outline-warning" asp-action="Edit" asp-route-id="@kitap.Isbn">
+                                <i class="bi bi-pencil-square"></i>
+                            </a>
+                            <a class="btn btn-lg btn-outline-danger" asp-action="Delete" asp-route-id="@kitap.Isbn">
+                                <i class="bi bi-trash"></i>
+                            </a>
                             <a class="btn btn-lg btn-light text-dark" asp-controller="Home" asp-action="Index"
-                            asp-route-id="@kitap.Isbn"><i class="bi bi-house"></i></a>
+                               asp-route-id="@kitap.Isbn"><i class="bi bi-house"></i></a>
+
+
+                            
+
                         </td>
                     </tr>
                }

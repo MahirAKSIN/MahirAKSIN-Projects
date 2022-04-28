@@ -1,12 +1,52 @@
 @model List<Yazarlar>
-@{
-    ViewData["Title"] = "Index";
-}
+    @{
+    ViewData["Title"] = "Yazarlar";
+    }
 
-@foreach (var item in Model)
-{
-    <div>
-        <p>@item.AdSoyad</p>
-        <a asp-action="Details" asp-route-id="@item.Id">Detay</a>
-    </div>
-}
+    <h3 class="text-center">Yazarlar</h3>
+
+
+    <table class="table table-dark w-75 text-center">
+        <thead>
+            <tr>
+                <td> Yazar ID </td>
+                <td> Yazar Adi Soyadi </td>
+                <td> Yazar Email </td>
+                <td> Yapilacak Islem </td>
+            </tr>
+
+        </thead>
+
+        <tbody>
+            @foreach (var item in Model)
+               {
+
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.AdSoyad</td>
+                <td>@item.Mail</td>
+                <td>
+                    <a asp-action="Details" class="btn btn-outline-success btn-lg " asp-route-id="@item.Id"> <i class="bi bi-ticket-detailed"></i></a>
+                    @*<a asp-action="">content</a>*@
+                </td>
+
+
+            </tr>
+
+
+               }
+
+
+        </tbody>
+
+
+
+    </table>
+
+
+
+
+
+
+
+

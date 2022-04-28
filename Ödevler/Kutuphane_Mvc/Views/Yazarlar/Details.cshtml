@@ -3,4 +3,35 @@
     ViewData["Title"] = "Details";
 }
 
-@Model.AdSoyad
+<h3 class="text-center text-dark">Yazar Detaylari</h3>
+<hr />
+
+<div class="container text-center w-75">
+    <div class="row">
+        <div class="col-md-6">
+
+            <p><span class="text-dark">ID:</span>@Model.Id</p>
+            <p><span class="text-dark">Ad Soyad:</span>@Model.AdSoyad</p>
+            <p><span class="text-dark">Cinsiyet:</span>@Model.Cinsiyet</p>
+            <p><span class="text-dark">Dogum Tarihi:</span>@Model.DogumTarihi</p>
+
+        </div>
+        <div class="col-md-6">
+            <p><span class="text-dark">Telefon:</span>@Model.Tel</p>
+            <p><span class="text-dark">Mail:</span>@Model.Mail</p>
+            <p><span class="text-dark">Turler:</span>@Model.TurlerId</p>
+
+            <a asp-action="Index" class="btn btn-outline-dark btn-lg" asp-route-id="@Model.Id"><i class="bi bi-arrow-counterclockwise  btn btn-sm p-2 px-2"></i></a>
+
+        </div>
+
+    </div>
+
+
+
+
+
+
+</div>
+
+

@@ -17,12 +17,7 @@ namespace EF_Core_MVC_Code.Models
         {
         }
 
-// services.Configure<IdentityOptions>(options =>
-// {
-//     options.ClaimsIdentity.UserNameClaimType = OpenIdConnectConstants.Claims.Name;
-//     options.ClaimsIdentity.UserIdClaimType = OpenIdConnectConstants.Claims.Subject;
-//     options.ClaimsIdentity.RoleClaimType = OpenIdConnectConstants.Claims.Role;
-// });
+
 
         public virtual DbSet<Kitaplar> Kitaplars { get; set; }
         public virtual DbSet<Odunc> Oduncs { get; set; }
