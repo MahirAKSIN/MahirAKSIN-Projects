@@ -1,0 +1,36 @@
+﻿@model EF_Core_MVC_Code.Models.Yazarlar;
+
+@{
+
+    ViewData["Title"] = "Edit";
+
+}
+
+<h3></h3>
+
+<div class="container w-75">
+    <div class="row">
+        <div class="col-6">
+            <form asp-action="Eidt">
+                <div class="form-group">
+
+                    <label class="label-control"><span>Yazar ID : </span>@Model.Id</label>
+                    <label class="label-control">Yazar Adı : </label>
+                    <input type="text" class="form-control" asp-for="AdSoyad" />
+                    <label class="label-control">Cinsiyet</label>
+                    <select name="Cinsiyet" asp-for="Cinsiyet">
+                        <option>Erkek</option>
+                        <option>Kadın</option>
+                    </select>
+                    <label class="label-control">Telefon</label>
+                    <input type="text" name="Telefon" asp-for="Tel"/>
+                    <label class="label-control">@Model.Mail</label>
+
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
