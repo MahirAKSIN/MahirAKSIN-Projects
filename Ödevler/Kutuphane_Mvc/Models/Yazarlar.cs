@@ -19,6 +19,7 @@ namespace EF_Core_MVC_Code.Models
         public string Tel { get; set; }
         public string Mail { get; set; }
         public int? TurlerId { get; set; }
+        //public int? YayinEvleriID { get; set; }
 
         public virtual Turler Turler { get; set; }
         public virtual ICollection<Kitaplar> Kitaplars { get; set; }
