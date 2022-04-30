@@ -1,0 +1,54 @@
+﻿@model EF_Core_MVC_Code.Models.Yazarlar;
+
+
+@{
+
+    ViewData["Title"] = "YeniYazarEkle";
+
+}
+<h3 class="text-center m-2">Yeni Yazar Ekle</h3>
+
+
+<div class="container text-center w-50">
+    @* <div class="d-flex justify-content-center align-content-center "> *@
+    <div class="row">
+        <div class="col-sm-4 col-md-4">
+            <div>
+                <form asp-action="Create">
+                    <div class="form-group m-2">
+                        <input type="text" placeholder="Ad Soyad giriniz..." asp-for="AdSoyad" class="m-2" required />
+                        <input type="text" placeholder="Cinsiyet giriniz..." asp-for="Cinsiyet" class="m-2" required />
+                        <input type="datetime" placeholder="Dogum Tarihi giriniz" asp-for="DogumTarihi" class="m-2" required />
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="col-sm-4 col-md-4 mt-2">
+            <div>
+                <form asp-action="Create">
+                    <div class="form-group">
+                        <input type="number" placeholder="Tel giriniz..." asp-for="Tel" class="m-2" />
+                        <input type="text" placeholder="Mail giriniz..." asp-for="Mail" class="m-2" />
+
+                    </div>
+                </form>
+            </div>
+
+            <form asp-action="Create">
+                <div class="form-group">
+                    <input type="submit" class="btn btn-outline-dark p-2" />
+                    <a asp-action="Index" class="btn btn-outline-dark text-white btn-lg ">
+                        <i class="bi bi-arrow-counterclockwise "></i>
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+</div>
+
+
+@*</div>*@
+

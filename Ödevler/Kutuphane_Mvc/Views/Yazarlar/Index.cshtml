@@ -2,37 +2,43 @@
 @{ ViewData["Title"] = "Yazarlar"; }
 
 <h3 class="text-center">Yazarlar</h3>
+<div class="text-center m-2">
+    <a asp-action="Create" class="btn btn-outline-dark text-white">Yeni Yazar Ekle<i class="bi bi-person-plus-fill m-2"></i></a>
+</div>
 
 
-<table class="table table-dark w-75 text-center">
-    <thead>
-        <tr>
-            <td> Yazar ID </td>
-            <td> Yazar Adi Soyadi </td>
-            <td> Yazar Email </td>
-            <td> Yapilacak Islem </td>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
+
+<div class="d-flex justify-content-center align-content-center">
+
+    <table class="table table-dark  w-75 text-center">
+
+        <thead class="bg-success">
+            <tr>
+                <td> Yazar ID </td>
+                <td> Yazar Adi Soyadi </td>
+                <td> Yazar Email </td>
+                <td> Yapilacak Islem </td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
 <tr>
     <td>@item.Id</td>
     <td>@item.AdSoyad</td>
     <td>@item.Mail</td>
     <td>
         <a asp-action="Details" class="btn btn-outline-success btn-lg " asp-route-id="@item.Id"> <i class="bi bi-ticket-detailed"></i></a>
-        <a asp-action="Edit" class="btn btn-outline-warning btn-lg" asp-route-id="@item.Id">Edit</a>
+        <a asp-action="Edit" class="btn btn-outline-warning btn-lg" asp-route-id="@item.Id"><i class="bi bi-pencil-fill"></i></a>
+        <a asp-action="Delete" class="btn btn-outline-danger btn-lg" asp-route-id="@item.Id"><i class="bi bi-archive"></i></a>
+        <a asp-controller="Home" asp-action="Index" class="btn btn-outline-white btn-lg text-black-50 bg-white"><i class="bi bi-house"></i></a>
     </td>
 
-</tr> }
+</tr>}
+        </tbody>
 
-    </tbody>
-
-
-
-</table>
-
+    </table>
+</div>
 
 
 

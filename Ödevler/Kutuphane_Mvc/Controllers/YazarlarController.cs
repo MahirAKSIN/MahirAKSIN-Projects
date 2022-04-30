@@ -4,12 +4,13 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using EF_Core_MVC_Code.Models;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace EF_Core_MVC_Code.Controllers
 {
-    public class YazarlarController:Controller
+    public class YazarlarController : Controller
     {
-        private readonly KutuphaneSabahContext  _context;
+        private readonly KutuphaneSabahContext _context;
         public YazarlarController(KutuphaneSabahContext context)
         {
             _context = context;
@@ -28,20 +29,21 @@ namespace EF_Core_MVC_Code.Controllers
         [HttpGet]
         public IActionResult Edit(int id)
         {
-            var seciliYazar=_context.Yazarlars.Find(id);
+            var seciliYazar = _context.Yazarlars.Find(id);
+            ViewData["Tur"] = new SelectList(_context.Turlers, "Id", "TurAd", seciliYazar.TurlerId);
             return View(seciliYazar);
         }
-           [HttpPost]
-        public IActionResult Edit(Yazarlar  yazar)
+        [HttpPost]
+        public IActionResult Edit(Yazarlar yazar)
         {
-                _context.Yazarlars.Update(yazar);
-                _context.SaveChanges();
-                return RedirectToAction("Index");
+            _context.Yazarlars.Update(yazar);
+            _context.SaveChanges();
+            return RedirectToAction("Index");
 
         }
 
 
-          public IActionResult Delete(int id)
+        public IActionResult Delete(int id)
         {
             var yazarSilme = _context.Yazarlars.Find(id);
             return View(yazarSilme);
@@ -55,9 +57,24 @@ namespace EF_Core_MVC_Code.Controllers
             _context.SaveChanges();
             return RedirectToAction("Index");
         }
+        [HttpGet]
+        public IActionResult Create()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Create(Yazarlar yazar)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Add(yazar);
+                _context.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            return View(yazar);
+        }
 
 
-
-     
     }
 }
