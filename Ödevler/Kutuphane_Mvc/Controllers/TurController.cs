@@ -20,6 +20,7 @@ namespace EF_Core_MVC_Code.Controllers
             //Bir daha yani, KutuphaneSabahContext'i temsil edecek.k
 
         }
+        //GET-Kitap türlerini listele
         public IActionResult Index()
         {
             return View(_context.Turlers.ToList());
@@ -40,15 +41,12 @@ namespace EF_Core_MVC_Code.Controllers
             return RedirectToAction("Index");
         }
 
+        //GET-Kitap türü detayını göster
         public IActionResult Details(int id)
         {
             var tur = _context.Turlers.Find(id);
             return View(tur);
         }
-        //GET-Kitap türlerini listele
-
-        //GET-Kitap türü detayını göster
-
         //GET-Düzenlenecek kitabın bilgilerini göster
 
         [HttpGet]

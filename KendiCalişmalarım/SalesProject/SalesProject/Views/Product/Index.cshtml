@@ -1,0 +1,45 @@
+﻿@model List<SalesProject.Models.Entities.Product>;
+
+@{
+
+    ViewData["Tİtle"] = "Products";
+
+}
+
+<div class="text-center my-2">
+    <h3 class="bg-dark text-white ">Products Sayfasi</h3>
+
+    <a asp-action="ImageUpload" class="btn btn-outline-dark text-white"><i class="bi bi-card-image p-2"></i> Yeni Urun Ekle</a>
+
+</div>
+
+
+<div class="container text-center">
+    <div class="d-flex justify-content-center align-content-center">
+        
+        <table class="table table-active w-50">
+            <thead>
+                <tr class="bg-dark text-white ">
+                    <td>Product Numarası</td>
+                    <td>Product Adi</td>
+                    <td>Product Fiyat</td>
+                    <td>Product Image</td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var product in Model)
+                {
+                    <tr>
+                        <td class="text-white ">@product.ProductId</td>
+                        <td class="text-white ">@product.ProductName</td>
+                        <td class="text-white ">@product.ProductPrice</td>
+                        <td class="text-white ">@product.ProductImage</td>
+                    </tr>
+                }
+            </tbody>
+
+        </table>
+    </div>
+
+</div>
+
