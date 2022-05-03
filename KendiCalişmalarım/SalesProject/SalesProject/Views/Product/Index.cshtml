@@ -14,35 +14,80 @@
 </div>
 
 
-<div class="container text-center">
-    <div class="d-flex justify-content-center align-content-center">
+<div class="container-fluid text-center">
+    <div class="d-flex ">
+        <div class="row ">
 
-        <table class="table table-active w-75">
-            <thead>
-                <tr class="bg-dark text-white ">
-                    <td>Product Numarası</td>
-                    <td>Product Adi</td>
-                    <td>Product Fiyat</td>
-                    @*<td>Product URL</td>*@
-                    <td>Product Image</td>
+            @foreach (var products in Model)
+            {
+                <div class="col-sm-12 col-md-6  col-lg-4 col-xl-3 my-2">
+                    <div class="card" style="width: 18rem;">
+                        <img src="@products.ProductImage" class="card-img-top img-fluid " alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">@products.ProductName</h5>
+                            @*<p class="card-text"></p>*@
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Urun Numarası: @products.ProductId</li>
+                            <li class="list-group-item">Urun Ismi: @products.ProductName</li>
+                            <li class="list-group-item">Urun Fiyatı: @products.ProductPrice</li>
 
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var product in Model)
-                {
-                    <tr>
-                        <td class="text-white ">@product.ProductId</td>
-                        <td class="text-white ">@product.ProductName</td>
-                        <td class="text-white ">@product.ProductPrice</td>
-                        @*<td class="text-white ">@product.ProductImage  </td>*@
-                        <td><img src="@product.ProductImage" class="w-50" alt="Alternate Text" /></td>
-                    </tr>
+                        </ul>
+                        <div class="card-body">
+                            <a asp-action="Edit" class="card-link btn btn-outline-dark">Edit</a>
+                            <a asp-action="Details" class="card-link btn btn-outline-danger">Detaylara Bak</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+
+    </div>
+</div>
+
+<!--<table class="table table-active w-75">
+    <thead>
+        <tr class="bg-dark text-white ">
+            <td>Product Numarası</td>
+            <td>Product Adi</td>
+            <td>Product Fiyat</td>-->
+@*<td>Product URL</td>*@
+<!--<td>Product Image</td>
+
+    </tr>
+</thead>
+<tbody>-->
+@*@foreach (var product in Model)
+    {
+    <tr>
+        <td class="text-white ">@product.ProductId</td>
+        <td class="text-white ">@product.ProductName</td>
+        <td class="text-white ">@product.ProductPrice</td>
+        <td class="text-white ">@product.ProductImage  </td>
+        <td><img src="@product.ProductImage" class="w-50" alt="Alternate Text" /></td>
+
+        <div class="card" style="width: 18rem;">
+            <img src="..." class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">An item</li>
+                <li class="list-group-item">A second item</li>
+                <li class="list-group-item">A third item</li>
+            </ul>
+            <div class="card-body">
+                <a href="#" class="card-link">Card link</a>
+                <a href="#" class="card-link">Another link</a>
+            </div>
+        </div>*@
+
+<!--</tr>
                 }
-            </tbody>
+           </tbody>
 
         </table>
     </div>
 
-</div>
-
+</div>-->
