@@ -8,5 +8,16 @@ namespace SalesProject.Models.Concrete
 {
     public class ProductDAL:BaseRepository<Product>
     {
+        //hocadan
+
+        public ProductDAL()
+        {
+        }
+        //private readonly ProductDbContext _context;
+
+        //public ProductDAL(ProductDbContext context)
+        //{
+        //    _context = context;
+        //}
     }
 }

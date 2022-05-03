@@ -12,5 +12,9 @@ namespace SalesProject.Models.Entities
         public string ProductName { get; set; }
         public decimal ProductPrice { get; set; }
         public string ProductImage { get; set; }
+        //public string FullName { get; set; }
+
+        //public string FillName { get; set; }
+        //public int Size { get; set; }
     }
 }

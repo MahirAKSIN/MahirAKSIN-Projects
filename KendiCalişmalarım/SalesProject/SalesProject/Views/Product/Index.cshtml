@@ -9,21 +9,23 @@
 <div class="text-center my-2">
     <h3 class="bg-dark text-white ">Products Sayfasi</h3>
 
-    <a asp-action="ImageUpload" class="btn btn-outline-dark text-white"><i class="bi bi-card-image p-2"></i> Yeni Urun Ekle</a>
+    <a asp-action="Create" class="btn btn-outline-dark text-white"><i class="bi bi-card-image p-2"></i> Yeni Urun Ekle</a>
 
 </div>
 
 
 <div class="container text-center">
     <div class="d-flex justify-content-center align-content-center">
-        
-        <table class="table table-active w-50">
+
+        <table class="table table-active w-75">
             <thead>
                 <tr class="bg-dark text-white ">
                     <td>Product Numarası</td>
                     <td>Product Adi</td>
                     <td>Product Fiyat</td>
+                    @*<td>Product URL</td>*@
                     <td>Product Image</td>
+
                 </tr>
             </thead>
             <tbody>
@@ -33,7 +35,8 @@
                         <td class="text-white ">@product.ProductId</td>
                         <td class="text-white ">@product.ProductName</td>
                         <td class="text-white ">@product.ProductPrice</td>
-                        <td class="text-white ">@product.ProductImage</td>
+                        @*<td class="text-white ">@product.ProductImage  </td>*@
+                        <td><img src="@product.ProductImage" class="w-50" alt="Alternate Text" /></td>
                     </tr>
                 }
             </tbody>
