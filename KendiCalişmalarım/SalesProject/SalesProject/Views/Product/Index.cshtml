@@ -1,10 +1,8 @@
 ﻿@model List<SalesProject.Models.Entities.Product>;
 
 @{
-
-    ViewData["Tİtle"] = "Products";
-
-}
+        ViewData["Tİtle"] = "Products";
+    }
 
 <div class="text-center my-2">
     <h3 class="bg-dark text-white ">Products Sayfasi</h3>
@@ -15,12 +13,12 @@
 
 
 <div class="container-fluid text-center">
-    <div class="d-flex ">
-        <div class="row ">
+    <div class="d-flex justify-content-around align-content-center text-center">
+        <div class="row  ">
 
             @foreach (var products in Model)
             {
-                <div class="col-sm-12 col-md-6  col-lg-4 col-xl-3 my-2">
+                <div class="d-flex justify-content-between align-content-cente col-sm-12 col-md-6  col-lg-4   my-2">
                     <div class="card" style="width: 18rem;">
                         <img src="@products.ProductImage" class="card-img-top img-fluid " alt="...">
                         <div class="card-body">
