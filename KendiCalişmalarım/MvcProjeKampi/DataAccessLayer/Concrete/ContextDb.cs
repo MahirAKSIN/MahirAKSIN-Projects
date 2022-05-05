@@ -19,10 +19,5 @@ namespace DataAccessLayer.Concrete
         public DbSet<Writer> Writers { get; set; }
 
 
-
-
-
-
-
     }
 }
