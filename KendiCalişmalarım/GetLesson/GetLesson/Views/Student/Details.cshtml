@@ -1,0 +1,39 @@
+﻿@model GetLesson.Models.Entites.StudentInfo;
+
+@{ ViewData["Title"] = "Details"; }
+
+<h3 class="text-center text-dark">Student Details</h3>
+<hr />
+
+
+<div class="container text-center w-75">
+    <div class="row">
+        <div class="col-md-6">
+
+            <p><span class="text-dark">ID:</span>@Model.</p>
+            <p><span class="text-dark">Ad Soyad:</span>@Model.StudentName</p>
+            <p><span class="text-dark">Cinsiyet:</span>@Model.StudentSurName</p>
+            <p><span class="text-dark">Dogum Tarihi:</span>@Model.StudentBirtday</p>
+
+
+        </div>
+        <div class="col-md-6">
+            <p><span class="text-dark">Dogum Tarihi:</span>@Model.StudentRegistration</p>
+            <p><span class="text-dark">Telefon:</span>@Model.DepartmanId </p>
+            <p><span class="text-dark">Mail:</span>@Model.PeriodId </p>
+
+
+            <a asp-action="Index" class="btn btn-outline-dark btn-lg" asp-route-id="@Model.StudentId"><i class="bi bi-arrow-counterclockwise  btn btn-sm p-2 px-2"></i></a>
+
+        </div>
+
+    </div>
+
+
+
+
+
+
+</div>
+
+

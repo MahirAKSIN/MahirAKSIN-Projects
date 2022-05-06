@@ -1,68 +1,62 @@
 ﻿@model IEnumerable<GetLesson.Models.Entites.StudentInfo>
 
-@{
-    ViewData["Title"] = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
+@{ ViewData["Title"] = "Index";
+                Layout = "~/Views/Shared/_Layout.cshtml"; }
 <div class="text-center">
     <h1 class="display-5">Students</h1>
     <a asp-action="Create" class="btn btn-outline-dark text-danger my-2">
-       New Add Student<i  class="bi bi-person-plus-fill p-2"></i><i class="bi bi-book"></i>
+        New Add Student<i class="bi bi-person-plus-fill p-2"></i><i class="bi bi-book"></i>
     </a>
 </div>
 <table class="table w-100">
-    <thead class="bg-success" >
+    <thead class="bg-success">
         <tr>
             <th>Student Name</th>
             <th>Student LastName</th>
             <th>Student BirtDay</th>
             <th>Student Registration</th>
-            <th>Deparman</th>
-            <th>Period</th>
+            <th>Department</th>
+            <th>p</th>
             <th>Action to be Taken</th>
-           
+
             <th></th>
         </tr>
     </thead>
     <tbody>
         @foreach (var item in Model)
         {
-            <tr class="bg-dark text-white">
-                <td  >
-                    @Html.DisplayFor(modelItem => item.StudentName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.StudentSurName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.StudentBirtday)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.StudentRegistration)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Departman.DepartmanId)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Period.PeriodId)
-                </td>
-                <td>
-                    @*<a asp-action="Edit" asp-route-id="@item.StudentId">Edit</a> |
-        <a asp-action="Details" asp-route-id="@item.StudentId">Details</a> |
-        <a asp-action="Delete" asp-route-id="@item.StudentId">Delete</a>*@
-                    <a class="btn btn-lg btn-outline-success " asp-action="Details" asp-route-id="@item.StudentId">
-                        <i class="bi bi-ticket-detailed"></i>
-                    </a>
-                    <a class="btn btn-lg btn-outline-warning" asp-action="Edit" asp-route-id="@item.StudentId">
-                        <i class="bi bi-pencil-square"></i>
-                    </a>
-                    <a class="btn btn-lg btn-outline-danger" asp-action="Delete" asp-route-id="@item.StudentId">
-                        <i class="bi bi-trash"></i>
-                    </a>
-                    <a class="btn btn-lg btn-light text-dark" asp-controller="Home" asp-action="Index"
-                       asp-route-id="@item.StudentId"><i class="bi bi-house"></i></a>
-                </td>
-            </tr>
-        }
+<tr class="bg-dark text-white">
+    <td>
+        @Html.DisplayFor(modelItem => item.StudentName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.StudentSurName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.StudentBirtday)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.StudentRegistration)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Departman.DepartmanId)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Period.PeriodId)
+    </td>
+    <td>
+        <a class="btn btn-lg btn-outline-success " asp-action="Details" asp-route-id="@item.StudentId">
+            <i class="bi bi-ticket-detailed"></i>
+        </a>
+        <a class="btn btn-lg btn-outline-warning" asp-action="Edit" asp-route-id="@item.StudentId">
+            <i class="bi bi-pencil-square"></i>
+        </a>
+        <a class="btn btn-lg btn-outline-danger" asp-action="Delete" asp-route-id="@item.StudentId">
+            <i class="bi bi-trash"></i>
+        </a>
+        <a class="btn btn-lg btn-light text-dark" asp-controller="Home" asp-action="Index"
+           asp-route-id="@item.StudentId"><i class="bi bi-house"></i></a>
+    </td>
+</tr>}
     </tbody>
 </table>

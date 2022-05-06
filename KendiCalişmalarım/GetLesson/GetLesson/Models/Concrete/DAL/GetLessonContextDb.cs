@@ -27,7 +27,8 @@ namespace GetLesson.Models.Concrete.DAL
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=DESKTOP-LOIGVJB;Database=GetLessonDb;Trusted_Connection=true;");
+            //optionsBuilder.UseSqlServer("Server=DESKTOP-LOIGVJB;Database=GetLessonDb;Trusted_Connection=true;");
+            optionsBuilder.UseSqlServer("Server=DESKTOP-8M7D7GE\\SQLEXPRESS;Database=GetLessonDb;Trusted_Connection=true;");
         }
 
 
