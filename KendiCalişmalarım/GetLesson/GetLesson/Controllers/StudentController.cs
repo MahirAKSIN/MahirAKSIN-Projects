@@ -12,9 +12,18 @@ namespace GetLesson.Controllers
     {
         public IActionResult Index()
         {
-
             var context = new BaseRepository<StudentInfo>();
             return View(context.GetAll());
         }
+
+
+        public IActionResult Details()
+        {
+            var context = new BaseRepository<StudentInfo>();
+            return View(context.Get(context));
+
+        }
+
+
     }
 }

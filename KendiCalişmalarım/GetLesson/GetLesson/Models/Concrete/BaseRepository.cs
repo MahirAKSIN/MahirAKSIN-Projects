@@ -1,5 +1,6 @@
 ﻿using GetLesson.Models.Abstract;
 using GetLesson.Models.Concrete.DAL;
+using GetLesson.Models.Entites;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,22 +17,20 @@ namespace GetLesson.Models.Concrete
             _context.SaveChanges();
         }
 
-       
+
 
         public void Delete(T entity)
         {
             var _context = new GetLessonContextDb();
             _context.Remove(entity);
-            _context.SaveChanges(); 
+            _context.SaveChanges();
 
         }
-
-        public T Get(T entity)
+       public   T Get(T entity)
         {
             var _context = new GetLessonContextDb();
             return _context.Set<T>().SingleOrDefault();
         }
-
         public List<T> GetAll()
         {
             var _context = new GetLessonContextDb();
@@ -39,11 +38,9 @@ namespace GetLesson.Models.Concrete
 
         }
 
-     
-
         public T GetByID(int id)
         {
-             var _context = new GetLessonContextDb();
+            var _context = new GetLessonContextDb();
             return _context.Set<T>().Find(id);
         }
 
