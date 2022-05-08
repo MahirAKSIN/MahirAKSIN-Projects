@@ -24,7 +24,8 @@ namespace DataAccessLayer.Concrete.Repository
 
         public Category Get(Category p)
         {
-            throw new NotImplementedException();
+            return obj.SingleOrDefault();
+
         }
 
         public List<Category> GetAll()

@@ -18,7 +18,8 @@ namespace DataAccessLayer.Concrete.Repository
       
         public void Delete(Writer p)
         {
-            throw new NotImplementedException();
+            _obj.Remove(p);
+            c.SaveChanges();
         }
 
         public Writer Get(Writer p)
