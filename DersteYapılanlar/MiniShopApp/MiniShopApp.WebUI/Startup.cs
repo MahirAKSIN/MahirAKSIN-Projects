@@ -27,15 +27,12 @@ namespace MiniShopApp.WebUI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            //services.AddScoped<ICategoryRepository, EfCoreCategoryRepository>();
-
-            services.AddScoped <IProductRepository, EfCoreProductRepository>();
-            
-            services.AddScoped <ICategoryService,CategoryManager>();
-            services.AddScoped <IProductService,ProductManager>();
-
-
-            //Projemize mvc yapýsýný saðlar
+            services.AddScoped<IProductRepository, EfCoreProductRepository>();
+            services.AddScoped<ICategoryRepository, EfCoreCategoryRepository>();
+            services.AddScoped<IProductService, ProductManager>();
+            //Proje boyunca ICategoryService çaðrýldýðýnda, CategoryManager'i kullan.
+            services.AddScoped<ICategoryService, CategoryManager>();
+            //Projemizin MVC yapýsýnda olmasýný saðlar.
             services.AddControllersWithViews();
         }
 
@@ -62,6 +59,13 @@ namespace MiniShopApp.WebUI
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapControllerRoute(
+
+                    name: "products",
+                    pattern: "products/{category?}",
+                    defaults: new { Controller = "MiniShop", Action = "List" }
+                    );
+
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");

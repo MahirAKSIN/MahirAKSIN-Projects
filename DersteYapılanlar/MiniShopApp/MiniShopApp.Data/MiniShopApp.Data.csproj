@@ -5,8 +5,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Concrete\MySql\" />
-    <Folder Include="Concrete\Oracle\" />
+    <Compile Remove="Concrete\MySql\**" />
+    <Compile Remove="Concrete\Oracle\**" />
+    <EmbeddedResource Remove="Concrete\MySql\**" />
+    <EmbeddedResource Remove="Concrete\Oracle\**" />
+    <None Remove="Concrete\MySql\**" />
+    <None Remove="Concrete\Oracle\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -19,7 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MiniShopApp.Entityy\MiniShopApp.Entityy.csproj" />
+    <ProjectReference Include="..\MiniShopApp.Entity\MiniShopApp.Entity.csproj" />
   </ItemGroup>
 
 </Project>

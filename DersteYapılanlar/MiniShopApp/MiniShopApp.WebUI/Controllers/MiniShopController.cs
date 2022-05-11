@@ -1,23 +1,41 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using MiniShopApp.Business.Abstract;
+using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace MiniShopApp.WebUI.Controllers
 {
-    public class HomeController : Controller
+    public class MiniShopController : Controller
     {
+
         private IProductService _productService;
-        public HomeController(IProductService productService)
+        public MiniShopController(IProductService productService)
         {
             _productService = productService;
         }
+
+
         public IActionResult Index()
         {
-            return View(_productService.GetAll());
+            return View();
         }
+
+        public IActionResult List(string category)
+        {
+
+            return View(_productService.GetProductsByCategory(category));
+
+
+
+
+
+        }
+
+
+
+
+
     }
 }

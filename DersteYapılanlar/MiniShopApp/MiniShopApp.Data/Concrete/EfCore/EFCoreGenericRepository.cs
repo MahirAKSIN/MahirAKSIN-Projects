@@ -8,7 +8,9 @@ using System.Threading.Tasks;
 
 namespace MiniShopApp.Data.Concrete.EfCore
 {
-    public class EFCoreGenericRepository<TEntity, Tcontext> : IRepository<TEntity> where TEntity : class where Tcontext : DbContext, new()
+    public class EfCoreGenericRepository<TEntity, TContext> : IRepository<TEntity>
+        where TEntity: class
+        where TContext: DbContext, new()
     {
         public void Create(TEntity entity)
         {
@@ -22,13 +24,13 @@ namespace MiniShopApp.Data.Concrete.EfCore
 
         public List<TEntity> GetAll()
         {
-            using (var context = new Tcontext())
+            using (var context = new TContext())
             {
                 return context.Set<TEntity>().ToList();
             }
         }
 
-        public TEntity GEtById(int id)
+        public TEntity GetById(int id)
         {
             throw new NotImplementedException();
         }
@@ -36,10 +38,6 @@ namespace MiniShopApp.Data.Concrete.EfCore
         public void Update(TEntity entity)
         {
             throw new NotImplementedException();
-        }
-
-        internal interface ICategoryRepository<T>
-        {
         }
     }
 }

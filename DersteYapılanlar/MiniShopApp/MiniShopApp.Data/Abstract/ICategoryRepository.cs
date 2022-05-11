@@ -1,4 +1,4 @@
-﻿using MiniShopApp.Entityy;
+﻿using MiniShopApp.Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,10 +7,8 @@ using System.Threading.Tasks;
 
 namespace MiniShopApp.Data.Abstract
 {
-    interface ICategoryRepository: IRepository<Category>
+    public interface ICategoryRepository : IRepository<Category>
     {
-        Category GetByIdWithCategories(int CategoryId);
-
-
+        Category GetByIdWithCategories(int categoryId);
     }
 }

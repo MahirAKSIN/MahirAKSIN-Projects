@@ -1,4 +1,4 @@
-﻿using MiniShopApp.Entityy;
+﻿using MiniShopApp.Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,19 +9,12 @@ namespace MiniShopApp.Business.Abstract
 {
     public interface IProductService
     {
-
-
-        Product GEtById(int id);
+        Product GetById(int id);
         List<Product> GetAll();
-        void Update(Product entity);
         void Create(Product entity);
+        void Update(Product entity);
         void Delete(Product entity);
 
-
-
-
-
-
-
+        List<Product> GetProductsByCategory(string name);
     }
 }

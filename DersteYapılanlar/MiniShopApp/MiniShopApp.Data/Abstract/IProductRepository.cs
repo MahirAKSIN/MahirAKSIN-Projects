@@ -1,4 +1,4 @@
-﻿using MiniShopApp.Entityy;
+﻿using MiniShopApp.Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,9 +9,7 @@ namespace MiniShopApp.Data.Abstract
 {
     public interface IProductRepository : IRepository<Product>
     {
-
-     List<Product> GetProductsByCategory(string name);
-
-
+        //Product'a özgü memberlarımı buraya yazabilirim.
+        List<Product> GetProductsByCategory(string name);
     }
 }

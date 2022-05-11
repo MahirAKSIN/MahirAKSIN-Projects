@@ -1,37 +1,23 @@
 ﻿@model List<Product>
-
 @{
     ViewData["Title"] = "Home Page";
 }
 
-
-
 <div class="row">
-    <div class="col-md-3">
+    <div class="col-md-2">
         @* Buraya kategoriler gelecek *@
-        @await Component.InvokeAsync("Categories");
-
+        @await Component.InvokeAsync("Categories")
     </div>
-    <div class="col-md-9">
+    <div class="col-md-10">
         <div class="row">
-                        @foreach (var product in Model)
+            @foreach (var product in Model)
             {
-                //Daha sonra ,partial olarak yapacağız
+                //Daha sonra, buraya yazacağımız kodları PARTIAL olarak tasarlayacağız.
+
                 <div class="col-md-3">
-                    <div class="card mb-2">
-                        <img src="~/img/@product.ImageUrl" width="100" />
-                        <div class="card-body">
-                            <h5 class="card-title text-center">@product.Name</h5>
-                            <small class="text-muted">@product.Price</small>
-                            <div class="card-footer bg-white">
-                                <a href="#" class="btn  btn-primary my-2">Detail</a>
-                                <a href="#" class="btn btn-sm btn-success my-2">Add To Card</a>
-                            </div>
-                        </div>
-                    </div>
-               </div>
+                  @await Html.PartialAsync("_Product",product);
+                </div>
             }
         </div>
     </div>
-
 </div>

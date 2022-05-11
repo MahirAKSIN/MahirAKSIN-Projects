@@ -1,5 +1,6 @@
 ﻿using MiniShopApp.Business.Abstract;
-using MiniShopApp.Entityy;
+using MiniShopApp.Data.Abstract;
+using MiniShopApp.Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,11 +11,10 @@ namespace MiniShopApp.Business.Concrete
 {
     public class CategoryManager : ICategoryService
     {
-
-        private ICategoryService _categoryService;
-        public CategoryManager(ICategoryService categoryService)
+        private ICategoryRepository _categoryRepository;
+        public CategoryManager(ICategoryRepository categoryRepository)
         {
-            _categoryService = categoryService;
+            _categoryRepository = categoryRepository;
         }
         public void Create(Category entity)
         {
@@ -28,10 +28,10 @@ namespace MiniShopApp.Business.Concrete
 
         public List<Category> GetAll()
         {
-            return _categoryService.GetAll();
+            return _categoryRepository.GetAll();
         }
 
-        public Category GEtById(int id)
+        public Category GetById(int id)
         {
             throw new NotImplementedException();
         }

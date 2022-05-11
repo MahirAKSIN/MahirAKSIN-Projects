@@ -9,8 +9,8 @@ using MiniShopApp.Data.Concrete.EfCore;
 namespace MiniShopApp.Data.Migrations
 {
     [DbContext(typeof(MiniShopContext))]
-    [Migration("20220509121032_mig1")]
-    partial class mig1
+    [Migration("20220511090439_mig2")]
+    partial class mig2
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -18,13 +18,10 @@ namespace MiniShopApp.Data.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "5.0.16");
 
-            modelBuilder.Entity("MiniShopApp.Entityy.Category", b =>
+            modelBuilder.Entity("MiniShopApp.Entity.Category", b =>
                 {
                     b.Property<int>("CategoryId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int?>("CategoryId1")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Description")
@@ -38,12 +35,10 @@ namespace MiniShopApp.Data.Migrations
 
                     b.HasKey("CategoryId");
 
-                    b.HasIndex("CategoryId1");
-
                     b.ToTable("Categories");
                 });
 
-            modelBuilder.Entity("MiniShopApp.Entityy.Product", b =>
+            modelBuilder.Entity("MiniShopApp.Entity.Product", b =>
                 {
                     b.Property<int>("ProductId")
                         .ValueGeneratedOnAdd()
@@ -64,7 +59,7 @@ namespace MiniShopApp.Data.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("TEXT");
 
-                    b.Property<decimal>("Price")
+                    b.Property<decimal?>("Price")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Url")
@@ -75,7 +70,7 @@ namespace MiniShopApp.Data.Migrations
                     b.ToTable("Products");
                 });
 
-            modelBuilder.Entity("MiniShopApp.Entityy.ProductCategory", b =>
+            modelBuilder.Entity("MiniShopApp.Entity.ProductCategory", b =>
                 {
                     b.Property<int>("CategoryId")
                         .HasColumnType("INTEGER");
@@ -90,22 +85,15 @@ namespace MiniShopApp.Data.Migrations
                     b.ToTable("ProductCategories");
                 });
 
-            modelBuilder.Entity("MiniShopApp.Entityy.Category", b =>
+            modelBuilder.Entity("MiniShopApp.Entity.ProductCategory", b =>
                 {
-                    b.HasOne("MiniShopApp.Entityy.Category", null)
+                    b.HasOne("MiniShopApp.Entity.Category", "Category")
                         .WithMany("ProductCategories")
-                        .HasForeignKey("CategoryId1");
-                });
-
-            modelBuilder.Entity("MiniShopApp.Entityy.ProductCategory", b =>
-                {
-                    b.HasOne("MiniShopApp.Entityy.Category", "Category")
-                        .WithMany()
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("MiniShopApp.Entityy.Product", "Product")
+                    b.HasOne("MiniShopApp.Entity.Product", "Product")
                         .WithMany("ProductCategories")
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -116,12 +104,12 @@ namespace MiniShopApp.Data.Migrations
                     b.Navigation("Product");
                 });
 
-            modelBuilder.Entity("MiniShopApp.Entityy.Category", b =>
+            modelBuilder.Entity("MiniShopApp.Entity.Category", b =>
                 {
                     b.Navigation("ProductCategories");
                 });
 
-            modelBuilder.Entity("MiniShopApp.Entityy.Product", b =>
+            modelBuilder.Entity("MiniShopApp.Entity.Product", b =>
                 {
                     b.Navigation("ProductCategories");
                 });
