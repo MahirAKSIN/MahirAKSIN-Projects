@@ -1,40 +1,19 @@
 ﻿@model List<Product>
 
-
-<div class="row">
-    <div class="col-md-3">
-
-        @await Component.InvokeAsync("Categories");
-
-    </div>
-
-    <div class="col-md-9">
-        <div class="row">
-
-            @foreach (var product in Model)
-            {
-                <div class="col-md-3">
-                    <partial name="_Product" model="product" />
-
-
-
-
-                </div>
-
-
-
-                @*<div class="col-md-9">
-                    </div>*@
-
-
-
-            }
-
-
-
-
+    <div class="row">
+        <div class="col-md-3">
+            @await Component.InvokeAsync("Categories") 
         </div>
-
+        <div class="col-md-9">
+            <div class="row">
+                @foreach (var product in Model)
+                {
+                <div class="col-md-4">
+                    <partial name="_Product" model="product" />
+                    @*@await Html.PartialAsync("_Product", product)*@
+                </div>
+                }
+            </div>
+            @* Buraya sayfalama ile ilgili kodlarımız gelecek *@
+        </div>
     </div>
-
-</div>

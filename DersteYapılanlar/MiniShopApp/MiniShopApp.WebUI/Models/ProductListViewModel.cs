@@ -7,13 +7,8 @@ namespace MiniShopApp.WebUI.Models
 {
     public class ProductListViewModel
     {
-
-        //ilerde sayfalama yapacağız
-        //yani uruleri categori cateyori değil sayfa sayfa sıralayacağız
-
-
-
-
-
+        //İlerde sayfalama yapacağız.
+        //Yani ürünleri categorilerine göre ya da değil; sayfa sayfa göstereceğiz.
+        //Her sayfada 10 ürün gibi.
     }
 }

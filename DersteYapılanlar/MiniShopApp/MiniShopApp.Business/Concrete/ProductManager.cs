@@ -40,9 +40,24 @@ namespace MiniShopApp.Business.Concrete
             throw new NotImplementedException();
         }
 
+        public List<Product> GetHomePageProducts()
+        {
+            return _productRepository.GetHomePageProducts();
+        }
+
+        public Product GetProductDetails(string url)
+        {
+            return _productRepository.GetProductDetails(url);
+        }
+
         public List<Product> GetProductsByCategory(string name)
         {
-          return   _productRepository.GetProductsByCategory(name);
+            return _productRepository.GetProductsByCategory(name);
+        }
+
+        public List<Product> GetSearchResult(string searchString)
+        {
+            return _productRepository.GetSearchResult(searchString);
         }
 
         public void Update(Product entity)

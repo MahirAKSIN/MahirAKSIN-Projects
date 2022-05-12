@@ -11,5 +11,8 @@ namespace MiniShopApp.Data.Abstract
     {
         //Product'a özgü memberlarımı buraya yazabilirim.
         List<Product> GetProductsByCategory(string name);
+        Product GetProductDetails(string url);
+        List<Product> GetHomePageProducts();
+        List<Product> GetSearchResult(string searchString);
     }
 }
