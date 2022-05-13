@@ -23,6 +23,9 @@ namespace MiniShopApp.WebUI.Controllers
 
         public IActionResult List(string category)
         {
+
+
+
             return View(_productService.GetProductsByCategory(category));
         }
 
@@ -51,5 +54,9 @@ namespace MiniShopApp.WebUI.Controllers
             //döndürecek bir METOT lazım.
             return View(_productService.GetSearchResult(q)); 
         }
+
+
+
+
     }
 }
