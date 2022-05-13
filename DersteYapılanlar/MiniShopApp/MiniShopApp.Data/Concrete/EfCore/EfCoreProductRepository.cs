@@ -11,28 +11,37 @@ namespace MiniShopApp.Data.Concrete.EfCore
 {
     public class EfCoreProductRepository : EfCoreGenericRepository<Product, MiniShopContext>, IProductRepository
     {
-
-        private string ConvertString(string text)
+        private string ConvertLower(string text)
         {
+            //İstanbul Irak Üzgün Şelaler Satırarası
+            text = text.Replace("I", "i");//İstanbul irak Üzgün Şelaleler Satırarası
+            text = text.Replace("İ", "i");//istanbul irak Üzgün Şelaleler Satırarası
+            text = text.Replace("ı", "i");//istanbul irak Üzgün Şelaleler Satirarasi
 
-
-            text = text.Replace("I", "i");
-            text = text.Replace("İ", "i");
-            text = text.Replace("ı", "i");
-            text = text.ToLower();
-
+            text = text.ToLower();//istanbul irak üzgün şelaleler satirarasi
             text = text.Replace("ç", "c");
             text = text.Replace("ö", "o");
+            text = text.Replace("ü", "u");
             text = text.Replace("ş", "s");
             text = text.Replace("ğ", "g");
-            text = text.Replace("ü", "u");
-
-
-
             return text;
         }
 
+        public List<Product> GetSearchResult(string searchString)
+        {
 
+            searchString = ConvertLower(searchString);
+            // Burada metodun döndürdüğü değer string, ama biz linq sorgularıyla çalışırken
+            //işimize yaramıyor!DÜZELTİLECEK
+            using (var context = new MiniShopContext())
+            {
+                var products = context
+                    .Products
+                    .Where(i => i.IsApproved && (ConvertLower(i.Name).Contains(searchString) || ConvertLower(i.Description).Contains(searchString)))
+                    .ToList();
+                return products;
+            }
+        }
         public List<Product> GetHomePageProducts()
         {
             using (var context = new MiniShopContext())
@@ -59,7 +68,7 @@ namespace MiniShopApp.Data.Concrete.EfCore
 
         //Burada görünmeseler de EfCoreGenericRepository classımızdaki tüm metotlar var.
         //Temel CRUD işlemlerini yapan 5 metot.
-        public List<Product> GetProductsByCategory(string name)
+        public List<Product> GetProductsByCategory(string name, int page, int pageSize)
         {
             using (var context= new MiniShopContext())
             {
@@ -74,22 +83,27 @@ namespace MiniShopApp.Data.Concrete.EfCore
                         .ThenInclude(i => i.Category)
                         .Where(i => i.ProductCategories.Any(a => a.Category.Url == name));
                 }
-                return products.ToList();
+                return products.Skip((page - 1) * pageSize).Take(pageSize).ToList();
             }
 
         }
 
-        public List<Product> GetSearchResult(string searchString)
+        public int GetCountByCategory(string category)
         {
-            ChangeCase s = new ChangeCase();
-            searchString = ConvertString(searchString);
-            using (var context= new MiniShopContext())
+            using (var context = new MiniShopContext())
             {
                 var products = context
                     .Products
-                    .Where(i => i.IsApproved && (ConvertString(i.Name).Contains(searchString) || ConvertString(i.Description.ToLower()).Contains(searchString)))
-                    .ToList();
-                return products;
+                    .Where(i => i.IsApproved)
+                    .AsQueryable();
+                if (!string.IsNullOrEmpty(category))
+                {
+                    products = products
+                        .Include(i => i.ProductCategories)
+                        .ThenInclude(i => i.Category)
+                        .Where(i => i.ProductCategories.Any(a => a.Category.Url == category));
+                }
+                return products.Count();
             }
         }
     }

@@ -10,9 +10,10 @@ namespace MiniShopApp.Data.Abstract
     public interface IProductRepository : IRepository<Product>
     {
         //Product'a özgü memberlarımı buraya yazabilirim.
-        List<Product> GetProductsByCategory(string name);
+        List<Product> GetProductsByCategory(string name, int page, int pageSize);
         Product GetProductDetails(string url);
         List<Product> GetHomePageProducts();
         List<Product> GetSearchResult(string searchString);
+        int GetCountByCategory(string category);
     }
 }
