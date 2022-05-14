@@ -9,7 +9,6 @@ namespace DataAccessLayer.Abstract
 {
     public interface IBlogDAL:IGenericDAL<Blog>
     {
-        
-
+        List<Blog> GetListWithCategory();
     }
 }

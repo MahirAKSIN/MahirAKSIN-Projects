@@ -13,7 +13,7 @@ namespace DataAccessLayer.Abstract
         void Delete(T t);
         List<T> GetAllList();
         T GetById(int id);
-
+        T GetSingle(T  t);
 
     }
 }

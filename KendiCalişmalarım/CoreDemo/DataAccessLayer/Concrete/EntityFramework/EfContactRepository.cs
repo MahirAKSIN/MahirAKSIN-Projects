@@ -1,4 +1,5 @@
-﻿using DataAccessLayer.Repository;
+﻿using DataAccessLayer.Abstract;
+using DataAccessLayer.Repository;
 using EntityLayer;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Concrete.EntityFramework
 {
-public     class EfContactRepository:GenericRepository<Contact>.IContactDAL
+public     class EfContactRepository:GenericRepository<Contact>,IContactDAL
     {
     }
 }
