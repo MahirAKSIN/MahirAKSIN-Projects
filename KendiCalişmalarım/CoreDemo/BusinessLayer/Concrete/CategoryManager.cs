@@ -19,7 +19,7 @@ namespace BusinessLayer.Concrete
          * için neredeyse bütün katmanlardaki kodları tek tek değiştirmemiz gerekir ama interface kullanarak bu bağımlılığı yok eder ve istersek ileride daha farklı teknolojilere geçebiliriz.
          * Avantaj olaraksa kısa vadede daha az kod yazıp daha kısa sürede projeyi bitirebiliriz.*/
 
-        GenericRepository<Category> genericRepository = new GenericRepository<Category>();
+        //GenericRepository<Category> genericRepository = new GenericRepository<Category>();
 
         ICategoryDAL _cd;
 
@@ -103,6 +103,12 @@ namespace BusinessLayer.Concrete
             //{
             //    return c.Set<Category>().Find(id);
             //}
+        }
+
+        public List<Category> GetCategoryWithBlog()
+        {
+            return _cd.GetCategoryWithBlog();
+
         }
     }
 }

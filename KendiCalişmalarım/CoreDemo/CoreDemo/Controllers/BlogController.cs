@@ -19,5 +19,10 @@ namespace CoreDemo.Controllers
 
             return View(blogVAlues);
         }
+
+        public IActionResult BlogDetails(int id)
+        {
+            return View();
+        }
     }
 }

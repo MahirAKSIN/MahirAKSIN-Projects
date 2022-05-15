@@ -1,4 +1,5 @@
 ﻿using BusinessLayer.Abstract;
+using DataAccessLayer.Abstract;
 using DataAccessLayer.Concrete.EntityFramework;
 using EntityLayer;
 using System;
@@ -13,9 +14,16 @@ namespace BusinessLayer.Concrete
     {
         EfBlogRepository efBlogRepository;
 
+        //IBlogDAL blogDAL;
+
+        //public BlogManager(IBlogDAL blogDAL)
+        //{
+        //    this.blogDAL = blogDAL;
+        //}
 
         public BlogManager(EfBlogRepository efBlogRepository)
         {
+
             this.efBlogRepository = efBlogRepository;
         }
 
@@ -36,6 +44,7 @@ namespace BusinessLayer.Concrete
 
         public void BlogAdd(Blog blog)
         {
+            //blogDAL.Add(blog);
             efBlogRepository.Add(blog);
 
         }
@@ -53,6 +62,11 @@ namespace BusinessLayer.Concrete
         public Blog GetByBlog(int id)
         {
             return efBlogRepository.GetById(id);
+        }
+
+        public List<Blog> GetByBlogId(int id)
+        {
+            return  efBlogRepository.GetAllList(i=>i.BlogId==id);
         }
     }
 }

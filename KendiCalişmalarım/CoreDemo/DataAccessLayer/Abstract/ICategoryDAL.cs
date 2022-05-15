@@ -8,8 +8,8 @@ using System.Threading.Tasks;
 namespace DataAccessLayer.Abstract
 {
     public interface ICategoryDAL:IGenericDAL<Category>
-    { 
-    
+    {
 
+        public List<Category> GetCategoryWithBlog();
     }
 }
