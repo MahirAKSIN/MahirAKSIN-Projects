@@ -1,0 +1,72 @@
+﻿@model ProductModel
+<h5 class="display-4">Create Product</h5>
+<hr />
+<form asp-controller="Admin" asp-action="ProductCreate" method="post">
+    <div class="row">
+        <div class="col-md-8">
+            @* Product bilgileri için *@
+
+            <div class="form-group row mb-2">
+                <label class="col-form-label col-sm-3">Name:</label>
+                <div class="col-sm-9">
+                    <input type="text" asp-for="Name" />
+                </div>
+            </div>
+
+            <div class="form-group row mb-2">
+                <label class="col-form-label col-sm-3">URL:</label>
+                <div class="col-sm-9">
+                    <input type="text" asp-for="Url" />
+                </div>
+            </div>
+
+            <div class="form-group row mb-2">
+                <label class="col-form-label col-sm-3">Description:</label>
+                <div class="col-sm-9">
+                    <input type="text" asp-for="Description" />
+                </div>
+            </div>
+
+            <div class="form-group row mb-2">
+                <label class="col-form-label col-sm-3">ImageUrl:</label>
+                <div class="col-sm-9">
+                    <input type="text" asp-for="ImageUrl" />
+                </div>
+            </div>
+
+            <div class="form-group row mb-2">
+                <label class="col-form-label col-sm-3">Price:</label>
+                <div class="col-sm-9">
+                    <input type="text" asp-for="Price" />
+                </div>
+            </div>
+
+            <div class="form-group row mb-2">
+                <div class="col-sm-9">
+                    <button type="submit" class="btn btn-primary">Save Product</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            @* Categorys, IsHome, IsApproved *@
+            @foreach (var item in (List<Category>)ViewBag.Categories)
+            {
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" value="@item.CategoryId" name="categoryIds" id="category_@item.CategoryId" />
+                    <label class="form-check-label">@item.Name</label>
+                </div>
+            }
+
+            <hr />
+            <div class="form-check">
+                <input type="checkbox" asp-for="IsApproved" class="form-check-input" />
+                <label class="form-check-label">Is Approved?</label>
+            </div>
+
+            <div class="form-check">
+                <input type="checkbox" asp-for="IsHome" class="form-check-input" />
+                <label class="form-check-label">Is Home?</label>
+            </div>
+        </div>
+    </div>
+</form>
