@@ -32,14 +32,22 @@ namespace MiniShopApp.Data.Concrete.EfCore
 
             searchString = ConvertLower(searchString);
             // Burada metodun döndürdüğü değer string, ama biz linq sorgularıyla çalışırken
-            //işimize yaramıyor!DÜZELTİLECEK
+            // işimize yaramıyor!DÜZELTİLECEK
             using (var context = new MiniShopContext())
             {
                 var products = context
                     .Products
-                    .Where(i => i.IsApproved && (ConvertLower(i.Name).Contains(searchString) || ConvertLower(i.Description).Contains(searchString)))
+                    .Where(i => i.IsApproved).ToList();
+                foreach (var item in products)
+                {
+                    item.Name = ConvertLower(item.Name);
+                    item.Description = ConvertLower(item.Description);
+                }
+                var products2 = products
+                    .Where(i => i.Name == searchString || i.Description == searchString)
                     .ToList();
-                return products;
+                
+                return products2;
             }
         }
         public List<Product> GetHomePageProducts()
@@ -105,6 +113,23 @@ namespace MiniShopApp.Data.Concrete.EfCore
                 }
                 return products.Count();
             }
+        }
+
+        public void Create(Product entity, int[] categoryIds)
+        {
+            using (var context = new MiniShopContext())
+            {
+                context.Products.Add(entity);
+                context.SaveChanges();
+                entity.ProductCategories = categoryIds
+                    .Select(catId => new ProductCategory
+                    {
+                        ProductId = entity.ProductId,
+                        CategoryId = catId
+                    }).ToList();
+                context.SaveChanges();
+            }
+
         }
     }
 }

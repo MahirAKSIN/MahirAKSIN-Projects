@@ -21,6 +21,11 @@ namespace MiniShopApp.Business.Concrete
             throw new NotImplementedException();
         }
 
+        public void Create(Product entity, int[] categoryIds)
+        {
+            _productRepository.Create(entity, categoryIds);
+        }
+
         public void Delete(Product entity)
         {
             throw new NotImplementedException();
