@@ -36,18 +36,18 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#">
+                                        <a href="/Blog/BlogReadAll/@blog.BlogId">
                                             <i class="fas fa-eye"></i>@blog.Category.CategoryName
                                         </a>
                                     </li>
-                                   
+                                  
 
                                 </ul>
                                 <h5 class="card-title">
-                                    <a href="single.html">@blog.BlogTitle</a>
+                                    <a href="/Blog/BlogReadAll/@blog.BlogId">@blog.BlogTitle</a>
                                 </h5>
                                 <p class="card-text mb-3">@blog.BlogContent.Substring(0, blog.BlogContent.Substring(0, 130).LastIndexOf("")); </p>
-                                <a href="/Blog/BlogDetails/@blog.BlogId" class="btn btn-primary read-m">Devamını oku</a>
+                                <a href="/Blog/BlogReadAll/@blog.BlogId" class="btn btn-primary read-m">Devamını oku</a>
                             </div>
                         </div>
                     }

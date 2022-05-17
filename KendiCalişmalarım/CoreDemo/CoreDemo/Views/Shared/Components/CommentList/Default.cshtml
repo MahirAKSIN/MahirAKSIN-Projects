@@ -1,0 +1,31 @@
+﻿@model IEnumerable<CoreDemo.Models.UsersComment>
+
+@foreach (var comment in Model)
+{
+
+ <table class="table table-bordered table-info">
+     
+     <thead>
+         <tr>
+             <th>Users ID</th>
+             <th>Users Name</th>
+
+         </tr>
+
+     </thead>
+     <tbody>
+         <tr>
+             <td>@comment.UserId</td>
+             <td>@comment.UserName</td>
+           
+
+         </tr>
+
+     </tbody>
+
+
+ </table>
+
+
+
+}
