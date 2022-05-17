@@ -49,5 +49,57 @@ namespace MiniShopApp.WebUI.Controllers
 
             return RedirectToAction("ProductList");
         }
-    }
+        [HttpGet]
+        public IActionResult ProductEdit(int? id)
+        {
+            var entity = _productService.GetByIdWithCategories((int)id);
+            var model = new ProductModel()
+            {
+                ProductId = entity.ProductId,
+                Name = entity.Name,
+                Url = entity.Url,
+                Price = entity.Price,
+                Description = entity.Description,
+                ImageUrl = entity.ImageUrl,
+                IsApproved = entity.IsApproved,
+                IsHome = entity.IsHome,
+                SelectedCategories = entity
+                    .ProductCategories
+                    .Select(i => i.Category)
+                    .ToList()
+            };
+            ViewBag.Categories = _categoryService.GetAll();
+            return View(model);
+        }
+        [HttpPost]
+
+        public IActionResult ProductEdit(ProductModel model, int[] categoryIds)
+        {
+            //ALİNDA ııı. BİR APRAMETRE OLACAK (CREATE TE OLACAK)<<<>-----<<<IforFile tipinde olacak
+
+            var entity = _productService.GetById(model.ProductId);
+            entity.Name = model.Name;
+            entity.Price = model.Price;
+            entity.Url = model.Url;
+            entity.Description  = model.Description ;
+            entity.IsApproved  = model.IsApproved ;
+            entity.IsHome  = model.IsHome ;
+            entity.ImageUrl  = model.ImageUrl ;
+            _productService.Update(entity,categoryIds);
+         
+
+
+            return RedirectToAction("ProductList");
+
+        }
+        public IActionResult ProductDelete(int productId)
+        {
+
+            var entity = _productService.GetById(productId);
+            _productService.Delete(entity);
+            return RedirectToAction("ProductList");
+        }
+
+
+        }
 }

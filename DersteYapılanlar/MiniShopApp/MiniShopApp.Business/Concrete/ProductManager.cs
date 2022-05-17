@@ -28,7 +28,7 @@ namespace MiniShopApp.Business.Concrete
 
         public void Delete(Product entity)
         {
-            throw new NotImplementedException();
+            _productRepository.Delete(entity);
         }
 
         public List<Product> GetAll()
@@ -42,7 +42,12 @@ namespace MiniShopApp.Business.Concrete
 
         public Product GetById(int id)
         {
-            throw new NotImplementedException();
+            return _productRepository.GetById(id);
+        }
+
+        public Product GetByIdWithCategories(int id)
+        {
+            return _productRepository.GetByIdWithCategories(id);
         }
 
         public int GetCountByCategory(string category)
@@ -73,6 +78,11 @@ namespace MiniShopApp.Business.Concrete
         public void Update(Product entity)
         {
             throw new NotImplementedException();
+        }
+
+        public void Update(Product entity, int[] categoryIds)
+        {
+            _productRepository.Update(entity, categoryIds);
         }
     }
 }
