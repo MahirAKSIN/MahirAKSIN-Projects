@@ -10,6 +10,7 @@
                 <label class="col-form-label col-sm-3">Name:</label>
                 <div class="col-sm-9">
                     <input type="text" asp-for="Name" />
+                    <span class="text-danger" asp-validation-for="Name">  </span>
                 </div>
             </div>
 
@@ -24,6 +25,8 @@
                 <label class="col-form-label col-sm-3">Description:</label>
                 <div class="col-sm-9">
                     <input type="text" asp-for="Description" />
+                    <span class="text-danger" asp-validation-for="Description">  </span>
+
                 </div>
             </div>
 
@@ -31,6 +34,7 @@
                 <label class="col-form-label col-sm-3">ImageUrl:</label>
                 <div class="col-sm-9">
                     <input type="text" asp-for="ImageUrl" />
+                    <span class="text-danger" asp-validation-for="ImageUrl">  </span>
                 </div>
             </div>
 
@@ -38,6 +42,8 @@
                 <label class="col-form-label col-sm-3">Price:</label>
                 <div class="col-sm-9">
                     <input type="text" asp-for="Price" />
+                    <span class="text-danger" asp-validation-for="ImageUrl">  </span>
+
                 </div>
             </div>
 
@@ -50,6 +56,20 @@
         </div>
         <div class="col-md-4">
             @* Categorys, IsHome, IsApproved *@
+            @if (Model.SelectedCategories != null)
+            {
+
+                @for (int i = 0; i < Model.SelectedCategories.Count; i++)
+                {
+
+                    <input type="hidden" name="SelectedCategories[@i].CategoryId" value="@Model.SelectedCategories[i].CategoryId" />
+                    <input type="hidden" name="SelectedCategories[@i].Name" value="@Model.SelectedCategories[i].Name" />
+
+
+                }
+
+            }
+
             @foreach (var item in (List<Category>)ViewBag.Categories)
             {
                 <div class="form-check">

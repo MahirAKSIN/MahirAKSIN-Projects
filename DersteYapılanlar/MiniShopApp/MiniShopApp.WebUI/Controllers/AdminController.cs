@@ -28,26 +28,37 @@ namespace MiniShopApp.WebUI.Controllers
         }
         public IActionResult ProductCreate()
         {
+            var model = new ProductModel();
+            model.SelectedCategories = null;
+
             ViewBag.Categories = _categoryService.GetAll();
-            return View();
+            return View(model);
         }
         [HttpPost]
         public IActionResult ProductCreate(ProductModel model, int[] categoryIds)
         {
-            //Buraya validation işlemleri ile ilgili bir kontrol gelecek.
-            var product = new Product()
+            if (ModelState.IsValid)
             {
-                Name=model.Name,
-                Url=model.Url,
-                Price=model.Price,
-                Description=model.Description,
-                ImageUrl=model.ImageUrl,
-                IsApproved=model.IsApproved,
-                IsHome=model.IsHome
-            };
-            _productService.Create(product, categoryIds);
+                var product = new Product()
+                {
+                    Name = model.Name,
+                    Url = model.Url,
+                    Price = model.Price,
+                    Description = model.Description,
+                    ImageUrl = model.ImageUrl,
+                    IsApproved = model.IsApproved,
+                    IsHome = model.IsHome
+                };
+                _productService.Create(product, categoryIds);
 
-            return RedirectToAction("ProductList");
+                return RedirectToAction("ProductList");
+            }
+
+            ViewBag.Categories = _categoryService.GetAll();
+            return View(model);
+
+
+
         }
         [HttpGet]
         public IActionResult ProductEdit(int? id)
@@ -77,20 +88,24 @@ namespace MiniShopApp.WebUI.Controllers
         {
             //ALİNDA ııı. BİR APRAMETRE OLACAK (CREATE TE OLACAK)<<<>-----<<<IforFile tipinde olacak
 
-            var entity = _productService.GetById(model.ProductId);
-            entity.Name = model.Name;
-            entity.Price = model.Price;
-            entity.Url = model.Url;
-            entity.Description  = model.Description ;
-            entity.IsApproved  = model.IsApproved ;
-            entity.IsHome  = model.IsHome ;
-            entity.ImageUrl  = model.ImageUrl ;
-            _productService.Update(entity,categoryIds);
-         
+            if (ModelState.IsValid)
+            {
+                var entity = _productService.GetById(model.ProductId);
+                entity.Name = model.Name;
+                entity.Price = model.Price;
+                entity.Url = model.Url;
+                entity.Description = model.Description;
+                entity.IsApproved = model.IsApproved;
+                entity.IsHome = model.IsHome;
+                entity.ImageUrl = model.ImageUrl;
+                _productService.Update(entity, categoryIds);
 
 
-            return RedirectToAction("ProductList");
 
+                return RedirectToAction("ProductList");
+            }
+            ViewBag.Categories = _categoryService.GetAll();
+            return View(model);
         }
         public IActionResult ProductDelete(int productId)
         {
@@ -101,5 +116,5 @@ namespace MiniShopApp.WebUI.Controllers
         }
 
 
-        }
+    }
 }

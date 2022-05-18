@@ -9,21 +9,30 @@ using System.Threading.Tasks;
 
 namespace MiniShopApp.Business.Concrete
 {
-    public class ProductManager : IProductService
+    public class ProductManager : IProductService, IValidator<Product>
     {
         private IProductRepository _productRepository;
         public ProductManager(IProductRepository productRepository)
         {
             _productRepository = productRepository;
         }
+
+        public string ErrorMessage { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
         public void Create(Product entity)
         {
             throw new NotImplementedException();
         }
 
-        public void Create(Product entity, int[] categoryIds)
+        public bool Create(Product entity, int[] categoryIds)
         {
-            _productRepository.Create(entity, categoryIds);
+
+
+            if (Validation(entity))
+            {
+                _productRepository.Create(entity, categoryIds);
+            }
+
         }
 
         public void Delete(Product entity)
@@ -80,9 +89,27 @@ namespace MiniShopApp.Business.Concrete
             throw new NotImplementedException();
         }
 
+
         public void Update(Product entity, int[] categoryIds)
         {
             _productRepository.Update(entity, categoryIds);
+        }
+
+        public bool Validation(Product entity)
+        {
+            var isValid = true;
+            if (string.IsNullOrEmpty(entity.Name))
+            {
+                ErrorMessage += $"Urun adi bos gecilmez.\n";
+                isValid = false;
+            }
+            if (entity.Price <= 0)
+            {
+                ErrorMessage = $"Urun fiyati sifirdan buyuk olmalidir \n";
+                isValid = false;
+            }
+
+            return isValid;
         }
     }
 }
