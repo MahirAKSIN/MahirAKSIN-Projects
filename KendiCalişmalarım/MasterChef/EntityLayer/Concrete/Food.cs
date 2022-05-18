@@ -1,0 +1,24 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace EntityLayer.Concrete
+{
+    public class Food
+    {
+        public int FoodId { get; set; }
+        public string FoodTitle { get; set; }
+        public string FoodContent { get; set; }
+        public string FoodThumbnailImage { get; set; }
+        public string FoodImage { get; set; }
+        public DateTime FoodCreateDate { get; set; }
+        public bool FoodStatus { get; set; }
+        public int CategoryId { get; set; }
+        public Category Category { get; set; }
+        public List<Comment> Comment { get; set; }
+
+
+    }
+}
