@@ -1,6 +1,9 @@
+using DataAccessLayer.Abstract;
+using DataAccessLayer.Concrete.EntityFramework;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -23,6 +26,14 @@ namespace MasterChef
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //services.AddDbContext<DbContext>(options => options.UseSqlite(Configuration.GetConnectionString("DefaultConnections")));
+            services.AddScoped<IFoodDAL, EfFoodRepository>();
+            services.AddScoped<IContactDAL, EfContactRepository>();
+            services.AddScoped<ICommentDAL, EfCommentRepository>();
+            services.AddScoped<ICategoryDAL, EfCategoryRepository>();
+            services.AddScoped<IAboutDAL, EfAboutRepository>();
+            services.AddScoped<IWriterChefDAL, EfWriterChefRepository>();
+
             services.AddControllersWithViews();
         }
 

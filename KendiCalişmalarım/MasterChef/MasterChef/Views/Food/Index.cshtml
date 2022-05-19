@@ -1,0 +1,66 @@
+﻿@using EntityLayer.Concrete;
+@model List<Food>
+
+@{
+
+    ViewData["Title"] = "Food List";
+    Layout = "~/Views/Shared/UserLayout.cshtml";
+
+}
+<link href="~/web/css/bootstrap.css" rel="stylesheet" />
+<link href="~/css/site.css" rel="stylesheet" />
+<h1>Günün Yemek Listesi</h1>
+
+<section class="main-content-w3layouts-agileits">
+    <div class="container">
+        <h3 class="tittle">Yemekler</h3>
+        <div class="inner-sec">
+          
+            <div class="left-blog-info-w3layouts-agileits text-left">
+                <div class="row">
+                    @foreach (var food in Model)
+                    {
+                        <div class="col-lg-4 card">
+                            <a href="single.html">
+                                <img src="@food.FoodImage" class="card-img-top img-fluid" alt="">
+                            </a>
+                            <div class="card-body">
+                                <ul class="blog-icons my-4">
+                                    <li>
+                                        <a href="#">
+                                            <i class="far fa-calendar-alt"></i>@(((DateTime)food.FoodCreateDate).ToString("dd-MMM-yyyy"));
+                                        </a>
+                                    </li>
+                                    <li class="mx-2">
+                                        <a href="#">
+                                            <i class="far fa-comment"></i>
+                                        </a>
+                                    </li>
+                                    <li class="mx-2">
+                                        <a href="#">
+                                            <i class="far fa-comment"></i>@food.Category.CategoryName
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fas fa-eye"></i> 2000
+                                        </a>
+                                    </li>
+
+                                </ul>
+                                <h5 class="card-title">
+                                    <a href="#">@food.FoodTitle</a>
+                                </h5>
+                                <p class="card-text mb-3">Lorem ipsum dolor sit amet consectetur adipisicing elit sedc dnmo eiusmod tempor incididunt.. </p>
+                                <a href="single.html" class="btn btn-primary read-m">Devamini oku</a>
+                            </div>
+                        </div>
+                    }
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
