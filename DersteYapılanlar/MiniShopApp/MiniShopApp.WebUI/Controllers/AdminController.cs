@@ -1,10 +1,13 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using MiniShopApp.Business.Abstract;
+using MiniShopApp.Business.Concrete;
 using MiniShopApp.Entity;
 using MiniShopApp.WebUI.Models;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
@@ -34,14 +37,21 @@ namespace MiniShopApp.WebUI.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult ProductCreate(ProductModel model, int[] categoryIds)
+        public IActionResult ProductCreate(ProductModel model, int[] categoryIds, IFormFile file)
         {
-            if (ModelState.IsValid && categoryIds.Length>0)
+            if (ModelState.IsValid && categoryIds.Length > 0 && file != null)
             {
+                JobManager urlGenerate = new JobManager();
+                var url = urlGenerate.MakeUrl(model.Name);
+
+                model.ImageUrl = urlGenerate.UploadImage(file,url);
+
+
+
                 var product = new Product()
                 {
                     Name = model.Name,
-                    Url = model.Url,
+                    Url = url,
                     Price = model.Price,
                     Description = model.Description,
                     ImageUrl = model.ImageUrl,
@@ -53,8 +63,9 @@ namespace MiniShopApp.WebUI.Controllers
                 CreateMessage("Ürün eklenmiştir", "success");
                 return RedirectToAction("ProductList");
             }
+            //Eğer validationdan geçemediyse ve/veya kategori seçilmemişse
             ViewBag.Categories = _categoryService.GetAll();
-            if (categoryIds.Length>0)
+            if (categoryIds.Length > 0)
             {
                 model.SelectedCategories = categoryIds.Select(catId => new Category()
                 {
@@ -63,7 +74,11 @@ namespace MiniShopApp.WebUI.Controllers
             }
             else
             {
-                ViewBag.CategoryMessage = "Lutfen kategory seciniz";
+                ViewBag.CategoryMessage = "Lütfen bir kategori seçimi yapınız!";
+            }
+            if (file==null)
+            {
+                ViewBag.ImageMessage = "Lütfen resim seçiniz!";
             }
             return View(model);
 
