@@ -9,26 +9,27 @@
 }
 <link href="~/web/css/bootstrap.css" rel="stylesheet" />
 <link href="~/css/site.css" rel="stylesheet" />
-<h1>Günün Yemek Listesi</h1>
 
+<a href="single.html">
+    <img src="~/web/images/h.jpg" class="card-img-top img-fluid">
+</a>
 <section class="main-content-w3layouts-agileits">
     <div class="container">
-        <h3 class="tittle">Yemekler</h3>
-        <div class="inner-sec">
-          
-            <div class="left-blog-info-w3layouts-agileits text-left">
+                @*<h3 class="tittle">Yemekler</h3>*@
+        <div class="inner-sec mx-5">
+                      <div class="left-blog-info-w3layouts-agileits text-left" >
                 <div class="row">
                     @foreach (var food in Model)
                     {
-                        <div class="col-lg-4 card">
+                        <div class="col-lg-4 card  my-1">
                             <a href="single.html">
-                                <img src="@food.FoodImage" class="card-img-top img-fluid" alt="">
+                                <img src="~/web/images/@food.FoodImage" class="card-img-top img-fluid"  >
                             </a>
                             <div class="card-body">
                                 <ul class="blog-icons my-4">
                                     <li>
                                         <a href="#">
-                                            <i class="far fa-calendar-alt"></i>@(((DateTime)food.FoodCreateDate).ToString("dd-MMM-yyyy"));
+                                            <i class="far fa-calendar-alt"></i>@(((DateTime)food.FoodCreateDate).ToString("dd-MMM-yyyy"))
                                         </a>
                                     </li>
                                     <li class="mx-2">
@@ -46,7 +47,7 @@
                                             <i class="fas fa-eye"></i> 2000
                                         </a>
                                     </li>
-
+                                   
                                 </ul>
                                 <h5 class="card-title">
                                     <a href="#">@food.FoodTitle</a>

@@ -1412,6 +1412,7 @@ a.facebook:hover {
 
 @media(max-width:640px) {
 	.inner-sec {
+		/*margin-top: 2em;*/
 		margin-top: 2em;
 	}
 	.banner-inner {
