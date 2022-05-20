@@ -1,49 +1,41 @@
 ﻿@model ProductModel
 <h5 class="display-4">Edit Product</h5>
 <hr />
-<form asp-controller="Admin" asp-action="ProductCreate" method="post">
+<form asp-controller="Admin" asp-action="ProductEdit" method="post">
     <div class="row">
         <div class="col-md-8">
-            @* Product bilgileri için *@
-
             <div class="form-group row mb-2">
                 <label class="col-form-label col-sm-3">Name:</label>
                 <div class="col-sm-9">
-                    <input type="text" asp-for="Name" />
-                    <span class="text-danger" asp-validation-for="Name">  </span>
+                    <input type="text" asp-for="Name" class="form-control"/>
                 </div>
             </div>
 
             <div class="form-group row mb-2">
                 <label class="col-form-label col-sm-3">URL:</label>
                 <div class="col-sm-9">
-                    <input type="text" asp-for="Url" />
+                    <input type="text" asp-for="Url" class="form-control" />
                 </div>
             </div>
 
             <div class="form-group row mb-2">
                 <label class="col-form-label col-sm-3">Description:</label>
                 <div class="col-sm-9">
-                    <input type="text" asp-for="Description" />
-                    <span class="text-danger" asp-validation-for="Description">  </span>
-
+                    <input type="text" asp-for="Description" class="form-control"/>
                 </div>
             </div>
 
             <div class="form-group row mb-2">
                 <label class="col-form-label col-sm-3">ImageUrl:</label>
                 <div class="col-sm-9">
-                    <input type="text" asp-for="ImageUrl" />
-                    <span class="text-danger" asp-validation-for="ImageUrl">  </span>
+                    <input type="text" asp-for="ImageUrl" class="form-control" />
                 </div>
             </div>
 
             <div class="form-group row mb-2">
                 <label class="col-form-label col-sm-3">Price:</label>
                 <div class="col-sm-9">
-                    <input type="text" asp-for="Price" />
-                    <span class="text-danger" asp-validation-for="ImageUrl">  </span>
-
+                    <input type="text" asp-for="Price" class="form-control"/>
                 </div>
             </div>
 
@@ -55,33 +47,23 @@
             </div>
         </div>
         <div class="col-md-4">
-            @* Categorys, IsHome, IsApproved *@
-            @if (Model.SelectedCategories != null)
-            {
-
-                @for (int i = 0; i < Model.SelectedCategories.Count; i++)
-                {
-
-                    <input type="hidden" name="SelectedCategories[@i].CategoryId" value="@Model.SelectedCategories[i].CategoryId" />
-                    <input type="hidden" name="SelectedCategories[@i].Name" value="@Model.SelectedCategories[i].Name" />
-
-
-                }
-
-            }
-
-            @foreach (var item in (List<Category>)ViewBag.Categories)
+             @foreach (var item in (List<Category>)ViewBag.Categories)
             {
                 <div class="form-check">
-                    <input type="checkbox" class="form-check-input" value="@item.CategoryId" name="categoryIds" id="category_@item.CategoryId"
-                           @if (Model.SelectedCategories != null) { @( Model.SelectedCategories.Any(i => i.CategoryId == item.CategoryId) ? "checked" : "") ; } />
+                    <input type="checkbox" class="form-check-input" value="@item.CategoryId" name="categoryIds" id="category_@item.CategoryId" 
+                      @if (Model.SelectedCategories != null)
+                      {
+                          @(Model.SelectedCategories.Any(i => i.CategoryId == item.CategoryId) ? "checked" : "")
+                      } />
+
+
                     <label class="form-check-label">@item.Name</label>
                 </div>
             }
 
             <hr />
             <div class="form-check">
-                <input type="checkbox" asp-for="IsApproved" class="form-check-input" />
+                <input type="checkbox" asp-for="IsApproved" class="form-check-input" class="form-control"/>
                 <label class="form-check-label">Is Approved?</label>
             </div>
 

@@ -36,6 +36,17 @@
     </header>
     <div class="container">
         <main role="main" class="pb-3">
+            @if (TempData["Message"] != null)
+            {
+                var message=JsonConvert.DeserializeObject<AlertMessage>(TempData["Message"] as String);
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="alert alert-@message.AlertType">
+                            @message.Message
+                        </div>
+                    </div>
+                </div>
+            }
             @RenderBody()
         </main>
     </div>

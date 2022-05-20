@@ -21,7 +21,7 @@ namespace DataAccessLayer.Concrete
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlite("Data Source = MasterChef.db");
+            optionsBuilder.UseSqlite("Data Source = MasterChefDB.db");
         }
 
         

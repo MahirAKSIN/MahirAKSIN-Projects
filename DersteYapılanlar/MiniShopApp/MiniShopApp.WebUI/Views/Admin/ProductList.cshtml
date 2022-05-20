@@ -35,13 +35,6 @@
                                 {
                                     <i class="fa-solid fa-circle-xmark text-danger"></i>
                                 }
-
-
-
-                                <a href="#" class="btn btn-success btn-sm">Aktif</a>
-                                <a href="#" class="btn btn-danger btn-sm">Eren</a>
-
-
                             </td>
                             <td>
                                 @if (product.IsApproved)
@@ -52,13 +45,11 @@
                                 {
                                     <i class="fa-solid fa-circle-xmark text-danger"></i>
                                 }
-
-
                             </td>
                             <td>@product.Price</td>
                             <td>
                                 <a href="/admin/products/@product.ProductId" class="btn btn-sm btn-primary mr-1">Edit</a>
-                                <form action="/admin/ProductDelete" method="post" class="d-inline">
+                                <form action="/Admin/ProductDelete" method="post" class="d-inline" >
                                     <input type="hidden" name="productId" value="@product.ProductId" />
                                     <button type="submit" class="btn btn-sm btn-danger">Delete</button>
                                 </form>

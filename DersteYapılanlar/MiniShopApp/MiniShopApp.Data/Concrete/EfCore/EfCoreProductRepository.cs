@@ -46,7 +46,7 @@ namespace MiniShopApp.Data.Concrete.EfCore
                 var products2 = products
                     .Where(i => i.Name == searchString || i.Description == searchString)
                     .ToList();
-
+                
                 return products2;
             }
         }
@@ -78,7 +78,7 @@ namespace MiniShopApp.Data.Concrete.EfCore
         //Temel CRUD işlemlerini yapan 5 metot.
         public List<Product> GetProductsByCategory(string name, int page, int pageSize)
         {
-            using (var context = new MiniShopContext())
+            using (var context= new MiniShopContext())
             {
                 var products = context
                     .Products
@@ -134,11 +134,12 @@ namespace MiniShopApp.Data.Concrete.EfCore
 
         public void Update(Product entity, int[] categoryIds)
         {
-            using (var c = new MiniShopContext())
+            using (var context = new MiniShopContext())
             {
-                var product = c.Products
+                var product = context
+                    .Products
                     .Include(i => i.ProductCategories)
-                    .FirstOrDefault(i => i.ProductId == entity.ProductId);
+                    .FirstOrDefault(i=>i.ProductId==entity.ProductId);
                 product.Name = entity.Name;
                 product.Price = entity.Price;
                 product.Description = entity.Description;
@@ -146,20 +147,13 @@ namespace MiniShopApp.Data.Concrete.EfCore
                 product.ImageUrl = entity.ImageUrl;
                 product.IsApproved = entity.IsApproved;
                 product.IsHome = entity.IsHome;
-
                 product.ProductCategories = categoryIds
-                    .Select(cats => new ProductCategory()
+                    .Select(catId => new ProductCategory()
                     {
                         ProductId = entity.ProductId,
-                        CategoryId = cats,
-
-
-                    }
-
-                    ).ToList();
-                c.SaveChanges();
-
-
+                        CategoryId = catId
+                    }).ToList();
+                context.SaveChanges();
             }
         }
 

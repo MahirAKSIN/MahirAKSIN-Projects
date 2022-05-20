@@ -9,21 +9,27 @@ namespace MiniShopApp.WebUI.Models
 {
     public class ProductModel
     {
-
         public int ProductId { get; set; }
-        //[Required(ErrorMessage = "Urum ismi zorunludur")]
-        //[StringLength(50, MinimumLength = 5, ErrorMessage = "Urun ismi 5 ile 50 arasında karakter olmalıdır")]
+
+        [Required(ErrorMessage = "Ürün ismi zorunludur!")]
+        [StringLength(50, MinimumLength = 5, ErrorMessage = "Ürün ismi 5-50 karakter uzunluğunda olmalıdır!")]
         public string Name { get; set; }
-        //[Required(ErrorMessage = "Lütfen fiyat bilgisi giriniz")]
-        //[Range(1, 50000, ErrorMessage = "Lütfen 1-50000 arasında fiyat araalığı giriniz")]
+
+        [Required(ErrorMessage = "Lütfen fiyat bilgisini giriniz!")]
+        [Range(1, 50000, ErrorMessage = "Lütfen 1-50000 arasında bir değer giriniz!")]
         public decimal? Price { get; set; }
-        //[Required(ErrorMessage = "Acıklama zorunludur")]
-        //[StringLength(500, MinimumLength = 20, ErrorMessage = "Acıklama 20-500 arasında")]
+
+        [Required(ErrorMessage = "Açıklama zorunludur!")]
+        [StringLength(500, MinimumLength = 20, ErrorMessage = "Açıklama 20-500 karakter uzunluğunda olmalıdır!")]
         public string Description { get; set; }
-        //[Required(ErrorMessage = "Lürfen urun gorseli yolu giriniz")]
+
+        [Required(ErrorMessage = "Lütfen resim yolunu giriniz!")]
         public string ImageUrl { get; set; }
+        [Required(ErrorMessage ="Lütfen URL bilgisini giriniz!")]
         public string Url { get; set; }
+
         public bool IsApproved { get; set; }
+
         public bool IsHome { get; set; }
         public List<Category> SelectedCategories { get; set; }
     }

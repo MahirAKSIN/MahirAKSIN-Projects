@@ -19,11 +19,10 @@ namespace MiniShopApp.Data.Concrete.EfCore
 
         public void Delete(TEntity entity)
         {
-            using (var c=new MiniShopContext())
+            using (var context = new TContext())
             {
-                c.Set<TEntity>().Remove(entity);
-                c.SaveChanges();
-            
+                context.Set<TEntity>().Remove(entity);
+                context.SaveChanges();
             }
         }
 

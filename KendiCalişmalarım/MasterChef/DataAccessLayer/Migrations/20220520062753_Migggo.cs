@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace MiniShopApp.Data.Migrations
+namespace DataAccessLayer.Migrations
 {
-    public partial class MigTc : Migration
+    public partial class Migggo : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

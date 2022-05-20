@@ -23,7 +23,7 @@ namespace MiniShopApp.Business.Concrete
 
         public void Delete(Category entity)
         {
-            _categoryRepository.Delete(entity);
+            throw new NotImplementedException();
         }
 
         public List<Category> GetAll()
