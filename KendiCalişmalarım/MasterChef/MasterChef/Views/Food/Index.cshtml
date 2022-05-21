@@ -8,22 +8,23 @@
 
 }
 <link href="~/web/css/bootstrap.css" rel="stylesheet" />
-<link href="~/css/site.css" rel="stylesheet" />
-
-<a href="single.html">
+<link href="~/css/site.css" rel="stylesheet" /><a href="single.html">
     <img src="~/web/images/h.jpg" class="card-img-top img-fluid">
 </a>
-<section class="main-content-w3layouts-agileits">
+
+@*class="main-content-w3layouts-agileits"*@
+<section>
     <div class="container">
-                @*<h3 class="tittle">Yemekler</h3>*@
-        <div class="inner-sec mx-5">
-                      <div class="left-blog-info-w3layouts-agileits text-left" >
+        @*<h3 class="tittle">Yemekler</h3>*@
+        @*class="inner-sec "*@
+        <div>
+            <div class="left-blog-info-w3layouts-agileits text-left">
                 <div class="row">
                     @foreach (var food in Model)
                     {
-                        <div class="col-lg-4 card  my-1">
+                        <div class="col-lg-4 card my-1  m-md-auto" width="50">
                             <a href="single.html">
-                                <img src="~/web/images/@food.FoodImage" class="card-img-top img-fluid"  >
+                                <img src="~/web/images/@food.FoodImage" class="card-img-top img-fluid">
                             </a>
                             <div class="card-body">
                                 <ul class="blog-icons my-4">
@@ -38,22 +39,39 @@
                                         </a>
                                     </li>
                                     @*<li class="mx-2">
-                                        <a href="#">
-                                            <i class="far fa-comment"></i>@food.Category.CategoryName
-                                        </a>
-                                    </li>*@
+                                            <a href="#">
+                                                <i class="far fa-comment"></i>@food.Category.CategoryName
+                                            </a>
+                                        </li>*@
                                     <li>
                                         <a href="#">
-                                            <i class="fas fa-eye"></i> 2000
+                                            <i class="fas fa-eye"></i>0
                                         </a>
                                     </li>
-                                   
+
                                 </ul>
                                 <h5 class="card-title">
                                     <a href="#">@food.FoodTitle</a>
                                 </h5>
-                                <p class="card-text mb-3">Lorem ipsum dolor sit amet consectetur adipisicing elit sedc dnmo eiusmod tempor incididunt.. </p>
-                                <a href="single.html" class="btn btn-primary read-m">Devamini oku</a>
+                                <p class="card-text mb-3">@food.FoodContent </p>
+                                <div class="row">
+
+                                    <div class="col-md-6 mx-auto my-1">
+
+                                        <a href="#" class="btn btn-primary btn-sm">Devamini oku</a>
+                                        <a href="#" class="btn btn-primary btn-md" >Corbalar</a>
+                                        <a href="/food/maincourse" class="btn btn-primary btn-sm">Ana Yemekler</a>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <a href="#" class="btn btn-primary ">Fast Food</a>
+                                        <a href="#" class="btn btn-primary">Tatlilar</a>
+                                        <a href="#" class="btn btn-primary ">Icecekler</a>
+                                    </div>
+
+
+                                </div>
+
+
                             </div>
                         </div>
                     }

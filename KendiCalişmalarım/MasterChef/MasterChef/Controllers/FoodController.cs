@@ -18,5 +18,13 @@ namespace MasterChef.Controllers
             var val = fM.GetAllFood();
             return View(val);
         }
+        public IActionResult MainCourse()
+        {
+
+
+            return View();
+        }
+
+
     }
 }
