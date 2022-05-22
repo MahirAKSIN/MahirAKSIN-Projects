@@ -1,0 +1,117 @@
+﻿@using EntityLayer.Concrete
+
+<!--
+    Author: W3layouts
+    Author URL: http://w3layouts.com
+    License: Creative Commons Attribution 3.0 Unported
+    License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+@{
+
+    Layout = "~/Views/Shared/UserLayout.cshtml";
+
+}
+<style>
+    .subContent1 {
+        background-color: rgba(117, 191, 201, 0.8);
+        width: 1900px;
+        height: 1100px;
+        padding-top: 150px;
+        padding-left: 25px;
+        left: 0px;
+        top: 0px;
+        z-index: 1;
+        font-size: 25px;
+    }
+
+    .cartContent {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        max-width: 2000px;
+        margin-block: 2rem;
+        gap: 5rem;
+    }
+
+    .user {
+        display: flex;
+        gap: 0.5rem;
+    }
+
+    .user__image {
+        border-radius: 50%;
+    }
+
+    .user__info > small {
+        color: #666;
+    }
+
+    .card__body h4 {
+        font-size: 1.5rem;
+        text-transform: capitalize;
+    }
+
+    .card__body {
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .card__footer {
+        display: flex;
+        padding: 1rem;
+        margin-top: auto;
+    }
+
+    .tag {
+        align-self: flex-start;
+        padding: 0.25em 0.75em;
+        border-radius: 1em;
+        font-size: 0.75rem;
+    }
+
+    .tag-blue {
+        background: #56ccf2;
+        background: linear-gradient(to bottom, #2f80ed, #56ccf2);
+        color: #fafafa;
+    }
+</style>
+<link href="/web/css/bootstrap.css" rel='stylesheet' type='text/css' />
+<link rel="stylesheet" href="/web/css/single.css">
+<link href="/web/css/style.css" rel='stylesheet' type='text/css' />
+<link href="/web/css/fontawesome-all.css" rel="stylesheet">
+<link href="//fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800"
+      rel="stylesheet">
+<section class="content1" id="h6">
+    <div class="subContent1">
+        <a href=""></a>
+        <h1 style="margin-left: 820px; color: brown;">HAKKIMDA</h1>
+        <div class="cartContent">
+            <div class="card">
+                <div class="card__header">
+                    <img src="#" alt="card__image" class="card__image "
+                         width="600" style="width:7500px; height:300px">
+                </div>
+                <div class="card__body">
+                    <span class="tag tag-blue" style="font-size: 25px;">BLOG-MAHİR-AKSİN</span>
+                    <h4>BEN MAHİR AKSIN</h4>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi perferendis molestiae non nemo
+                        doloribus. Doloremque, nihil! At ea atque quidem!
+                    </p>
+                </div>
+                <div class="card__footer">
+                    <div class="user">
+                        <img src="/web/mahir.jpg" alt="user__image" class="user__image">
+                        <div class="user__info">
+                            <h5>MAHİR AKSİN</h5>
+                            <small>2h ago</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>

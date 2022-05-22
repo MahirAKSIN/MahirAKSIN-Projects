@@ -1,0 +1,133 @@
+﻿@using EntityLayer.Concrete
+
+<!--
+    Author: W3layouts
+    Author URL: http://w3layouts.com
+    License: Creative Commons Attribution 3.0 Unported
+    License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+@{
+
+    Layout = "~/Views/Shared/UserLayout.cshtml";
+
+}
+<style>
+    .card__footer {
+        display: flex;
+        padding: 1rem;
+        margin-top: auto;
+    }
+
+    .user {
+        display: flex;
+        gap: 0.5rem;
+    }
+
+    .user__image {
+        border-radius: 50%;
+    }
+
+    .user__info > small {
+        color: #666;
+    }
+
+    .container2 {
+        display: block;
+        justify-content: center;
+        align-items: center;
+        background-color: cadetblue;
+        margin-top: 20px;
+        margin-bottom: 30px;
+        width: 500px;
+        height: 800px;
+        margin-left: 500px;
+        padding: 80px;
+    }
+
+    .bilgiler input {
+        display: block;
+        justify-content: center;
+        align-items: center;
+        height: 35px;
+        margin-left: 18px;
+        width: 250px;
+        border-radius: 5px;
+    }
+
+        .bilgiler input:hover {
+            border: 3px solid red;
+            background-color: rgb(250, 246, 246);
+        }
+
+    .bilgiler label {
+        display: block;
+        justify-content: center;
+        align-items: center;
+        margin-left: 100px;
+        width: 250px;
+        font-size: 25px;
+    }
+
+    .bilgiler button {
+        display: block;
+        justify-content: center;
+        align-items: center;
+        margin-left: 17px;
+        margin-top: 25px;
+        width: 250px;
+        margin-bottom: 25px;
+        font-size: 25px;
+        border: 0 solid gray;
+        cursor: pointer;
+        border-radius: 8px;
+    }
+
+        .bilgiler button:hover {
+            border: 2px solid rgb(235, 62, 62);
+        }
+
+    .card__footer {
+        display: flex;
+        padding: 1rem;
+        margin-top: auto;
+    }
+
+    .header {
+        font-size: 30px;
+        /* margin-bottom:5px; */
+        text-align: center;
+    }
+</style>
+
+<link href="/web/css/bootstrap.css" rel='stylesheet' type='text/css' />
+<link rel="stylesheet" href="/web/css/single.css">
+<link href="/web/css/style.css" rel='stylesheet' type='text/css' />
+<link href="/web/css/fontawesome-all.css" rel="stylesheet">
+<link href="//fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800"
+      rel="stylesheet">
+<section class="contact" id="h7">
+    <div class="container2">
+        @*<h1 class="header">BANA ULAŞ</h1>*@
+        <div class="bilgiler">
+            <label for="">Ad Soyad</label>
+            <input type="text" name="ADSOYAD" id="">
+            <label for="">EMAİL</label>
+            <input type="email" name="" id="">
+            <label for="">TELEFON</label>
+            <input type="number" name="tel" id="">
+            <label for="">MESSAGE</label>
+            <input style="height: 105px;" type="text" name="message" id="">
+            <button type="submit">SUMBİT FORM</button>
+            <div class="card__footer">
+                <div class="user">
+                    <img src="/web/mahir.jpg" alt="user__image" class="user__image">
+                    <div class="user__info">
+                        <h5>MAHİR AKSİN</h5>
+                        <small>2h ago</small>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
