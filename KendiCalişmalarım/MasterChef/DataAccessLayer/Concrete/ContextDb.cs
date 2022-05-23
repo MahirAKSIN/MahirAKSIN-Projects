@@ -24,7 +24,11 @@ namespace DataAccessLayer.Concrete
             optionsBuilder.UseSqlite("Data Source = MasterChefDB.db");
         }
 
-        
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<FoodCategory>()
+                .HasKey(pc => new { pc.CategoryId, pc.FoodId });
+        }
 
     }
 }

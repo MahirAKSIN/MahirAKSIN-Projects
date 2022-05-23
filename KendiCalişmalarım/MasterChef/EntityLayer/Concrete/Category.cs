@@ -13,5 +13,7 @@ namespace EntityLayer.Concrete
         public string CategoryDescription { get; set; }
         public bool CategoryStatus { get; set; }
         public List<Food> Food{ get; set; }
+        public List<FoodCategory> FoodCategories { get; set; }
+
     }
 }
