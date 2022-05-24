@@ -1,4 +1,6 @@
-﻿using MasterChef.Models;
+﻿using BusinessLayer.Concrete;
+using DataAccessLayer.Concrete.EntityFramework;
+using MasterChef.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -11,7 +13,7 @@ namespace MasterChef.Controllers
 {
     public class HomeController : Controller
     {
-
+        FoodManager fM = new FoodManager(new EfFoodRepository());
 
         public IActionResult Index()
         {
@@ -25,7 +27,8 @@ namespace MasterChef.Controllers
         }
         public IActionResult MainCourse()
         {
-            return View();
+            var val = fM.GetAllFood();
+            return View(val);
         }
         public IActionResult Dessert()
         {
