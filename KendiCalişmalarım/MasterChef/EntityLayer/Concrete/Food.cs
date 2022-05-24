@@ -17,8 +17,8 @@ namespace EntityLayer.Concrete
         public string FoodImage { get; set; }
         public DateTime FoodCreateDate { get; set; }
         public bool FoodStatus { get; set; }
-        public int CategoryId { get; set; }
-        public Category Category { get; set; }
+        //public int CategoryId { get; set; }
+        //public Category Category { get; set; }
         public List<Comment> Comment { get; set; }
         public List<FoodCategory> FoodCategories { get; set; }
 
