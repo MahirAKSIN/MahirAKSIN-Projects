@@ -1,10 +1,13 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using MiniShopApp.Business.Abstract;
+using MiniShopApp.Business.Concrete;
 using MiniShopApp.Entity;
 using MiniShopApp.WebUI.Models;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
@@ -13,8 +16,8 @@ namespace MiniShopApp.WebUI.Controllers
 {
     public class AdminController : Controller
     {
-        private IProductService _productService;
-        private ICategoryService _categoryService;
+        private readonly IProductService _productService;
+        private readonly ICategoryService _categoryService;
         public AdminController(IProductService productService, ICategoryService categoryService)
         {
             _productService = productService;
@@ -34,27 +37,44 @@ namespace MiniShopApp.WebUI.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult ProductCreate(ProductModel model, int[] categoryIds)
+        public IActionResult ProductCreate(ProductModel model, int[] categoryIds, IFormFile file)
         {
-            if (ModelState.IsValid)
+            if (ModelState.IsValid && categoryIds.Length>0 && file!=null)
             {
+                var url = JobManager.MakeUrl(model.Name);
+                model.ImageUrl = JobManager.UploadImage(file, url);
                 var product = new Product()
                 {
-                    Name=model.Name,
-                    Url=model.Url,
-                    Price=model.Price,
-                    Description=model.Description,
-                    ImageUrl=model.ImageUrl,
-                    IsApproved=model.IsApproved,
-                    IsHome=model.IsHome
+                    Name = model.Name,
+                    Url = url,
+                    Price = model.Price,
+                    Description = model.Description,
+                    ImageUrl = model.ImageUrl,
+                    IsApproved = model.IsApproved,
+                    IsHome = model.IsHome
                 };
-                if (_productService.Create(product, categoryIds))
+                _productService.Create(product, categoryIds);
+
+                CreateMessage("Ürün eklenmiştir", "success");
+                return RedirectToAction("ProductList");
+            }
+            //İşler yolunda gitmediyse
+
+            if (categoryIds.Length>0)
+            {
+                model.SelectedCategories = categoryIds.Select(catId => new Category()
                 {
-                    CreateMessage("Ürün eklenmiştir", "success");
-                    return RedirectToAction("ProductList");
-                }
-                CreateMessage(_productService.ErrorMessage, "danger");
-                
+                    CategoryId = catId
+                }).ToList();
+            }
+            else
+            {
+                ViewBag.CategoryMessage = "Lütfen en az bir kategori seçiniz!";
+            }
+
+            if (file==null)
+            {
+                ViewBag.ImageMessage = "Lütfen bir resim seçiniz!";
             }
             ViewBag.Categories = _categoryService.GetAll();
             return View(model);

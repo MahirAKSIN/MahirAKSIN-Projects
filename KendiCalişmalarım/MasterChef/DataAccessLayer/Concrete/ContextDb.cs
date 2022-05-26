@@ -29,6 +29,9 @@ namespace DataAccessLayer.Concrete
             modelBuilder.Entity<FoodCategory>()
                 .HasKey(pc => new { pc.CategoryId, pc.FoodId });
         }
-
+       //hakkında kısmında vurgulamak isteneile şeyleri yaz;
+       // -askerlik
+       //     -yetkinlikler
+            
     }
 }
