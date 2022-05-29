@@ -9,5 +9,6 @@ namespace DataAccessLayer.Abstract
 {
     public interface IAboutDAL : IGenericDAL<About>
     {
+
     }
 }

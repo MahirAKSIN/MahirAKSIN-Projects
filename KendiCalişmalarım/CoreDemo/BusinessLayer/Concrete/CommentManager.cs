@@ -22,7 +22,8 @@ namespace BusinessLayer.Concrete
 
         public void CategoryAdd(Comment comment)
         {
-            throw new NotImplementedException();
+            commentDAL.Add(comment);
+           
         }
 
        

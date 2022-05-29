@@ -20,7 +20,7 @@ namespace BusinessLayer.Concrete
          * Avantaj olaraksa kısa vadede daha az kod yazıp daha kısa sürede projeyi bitirebiliriz.*/
 
         //GenericRepository<Category> genericRepository = new GenericRepository<Category>();
-        CategoryManager cm = new CategoryManager(new EfCategoryRepository());
+        //CategoryManager cm = new CategoryManager(new EfCategoryRepository());
         
 
         ICategoryDAL _cd;
