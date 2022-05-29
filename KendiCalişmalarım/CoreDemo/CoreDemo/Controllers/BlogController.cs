@@ -22,7 +22,7 @@ namespace CoreDemo.Controllers
 
         public IActionResult BlogReadAll(int id)
         {
-
+            ViewBag.i =id;
             var val = blogManager.GetByBlogId(id);
             return View(val);
         }
