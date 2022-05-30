@@ -1,0 +1,27 @@
+﻿@model IEnumerable<EntityLayer.Blog>
+<div class="tech-btm">
+    <h4>Blog Basliklari</h4>
+    <div class="blog-grids row mb-3">
+        @foreach (var blog in Model)
+        {
+            <div class="col-md-5 blog-grid-left">
+                <a href="single.html">
+                    <img src="~/web/images/1.jpg" class="img-fluid" alt="">
+                </a>
+            </div>
+            <div class="col-md-7 blog-grid-right">
+
+                <h5>
+                    <a href="single.html">@blog.BlogTitle</a>
+                </h5>
+                <div class="sub-meta">
+                    <span>
+                        <i class="far fa-clock"></i>@DateTime.Now
+                    </span>
+                </div>
+            </div>
+        }
+    </div>
+    </div>
+
+
