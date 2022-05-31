@@ -20,7 +20,7 @@ namespace BusinessLayer.Concrete
             this.commentDAL = commentDAL;
         }
 
-        public void CategoryAdd(Comment comment)
+        public void CommentAdd(Comment comment)
         {
             commentDAL.Add(comment);
            

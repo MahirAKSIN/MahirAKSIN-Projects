@@ -68,5 +68,10 @@ namespace BusinessLayer.Concrete
         {
             return  efBlogRepository.GetAllList(i=>i.BlogId==id);
         }
+
+        public List<Blog> GetBlogListByWriter(int id)
+        {
+        return    efBlogRepository.GetAllList(x => x.WriterId == id);
+        }
     }
 }
