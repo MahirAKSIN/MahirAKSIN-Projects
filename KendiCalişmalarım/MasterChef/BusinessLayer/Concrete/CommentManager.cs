@@ -33,13 +33,15 @@ namespace BusinessLayer.Concrete
         {
             return _commentDAL.GetAll();
         }
-        public Comment GetById(int id)
+        public List<Comment> GetById(int id)
         {
-            return _commentDAL.GetById(id);
+            return _commentDAL.GetAllList(i=>i.FoodID==id);
         }
         public Comment GetSingle(Comment comment)
         {
             return _commentDAL.GetSingle(comment);
         }
+
+      
     }
 }

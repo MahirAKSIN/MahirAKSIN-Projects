@@ -16,7 +16,7 @@ namespace EntityLayer.Concrete
         public string WriterChefPassword { get; set; }
         public bool WriterChefStatus { get; set; }
 
-
+        //public List<Food> Foods { get; set; }
     }
 }
 

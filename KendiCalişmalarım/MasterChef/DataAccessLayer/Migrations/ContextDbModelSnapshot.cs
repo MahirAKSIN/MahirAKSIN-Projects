@@ -131,7 +131,7 @@ namespace DataAccessLayer.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("CategoryId")
+                    b.Property<int?>("CategoryId")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("FoodContent")
@@ -152,9 +152,14 @@ namespace DataAccessLayer.Migrations
                     b.Property<string>("FoodTitle")
                         .HasColumnType("TEXT");
 
+                    b.Property<int>("WriterChefId")
+                        .HasColumnType("INTEGER");
+
                     b.HasKey("FoodId");
 
                     b.HasIndex("CategoryId");
+
+                    b.HasIndex("WriterChefId");
 
                     b.ToTable("Foods");
                 });
@@ -216,13 +221,17 @@ namespace DataAccessLayer.Migrations
 
             modelBuilder.Entity("EntityLayer.Concrete.Food", b =>
                 {
-                    b.HasOne("EntityLayer.Concrete.Category", "Category")
+                    b.HasOne("EntityLayer.Concrete.Category", null)
                         .WithMany("Food")
-                        .HasForeignKey("CategoryId")
+                        .HasForeignKey("CategoryId");
+
+                    b.HasOne("EntityLayer.Concrete.WriterChef", "WriterChef")
+                        .WithMany("Foods")
+                        .HasForeignKey("WriterChefId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Category");
+                    b.Navigation("WriterChef");
                 });
 
             modelBuilder.Entity("EntityLayer.Concrete.FoodCategory", b =>
@@ -256,6 +265,11 @@ namespace DataAccessLayer.Migrations
                     b.Navigation("Comment");
 
                     b.Navigation("FoodCategories");
+                });
+
+            modelBuilder.Entity("EntityLayer.Concrete.WriterChef", b =>
+                {
+                    b.Navigation("Foods");
                 });
 #pragma warning restore 612, 618
         }

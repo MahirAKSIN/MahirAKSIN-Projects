@@ -12,6 +12,12 @@ namespace BusinessLayer.Concrete
     public class WriterChefManager : IWriterChefService
     {
         IWriterChefDAL _writerChefDAL;
+
+        public WriterChefManager(IWriterChefDAL writerChefDAL)
+        {
+            _writerChefDAL = writerChefDAL;
+        }
+
         public List<WriterChef> GetAllWriterChef()
         {
             return _writerChefDAL.GetAll();

@@ -3,6 +3,7 @@ using DataAccessLayer.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -36,6 +37,17 @@ namespace DataAccessLayer.Repository
 
             }
         }
+
+        public List<T> GetAllList(Expression<Func<T, bool>> filter)
+        {
+            using (ContextDb c=new ContextDb())
+            {
+                return c.Set<T>().Where(filter).ToList();
+            }
+        }
+
+      
+
         public T GetById(int id)
         {
             using (var c = new ContextDb())

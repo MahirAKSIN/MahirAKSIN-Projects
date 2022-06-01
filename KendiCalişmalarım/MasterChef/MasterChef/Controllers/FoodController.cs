@@ -18,7 +18,7 @@ namespace MasterChef.Controllers
 
         public IActionResult Index()
         {
-            var val = fM.GetAllFood();
+            var val = fM.GetFoodListWithCategory();
             return View(val);
         }
 
@@ -47,6 +47,16 @@ namespace MasterChef.Controllers
           
             return RedirectToAction("Index");
         }
+        public IActionResult GetFoodDetail(int id)
+        {
+            ViewBag.i = id;
+
+            var val = fM.GetById(id);
+            return View(val);
+        }
+
+
+
 
     }
 

@@ -66,12 +66,12 @@ namespace BusinessLayer.Concrete
 
         public List<Blog> GetByBlogId(int id)
         {
-            return  efBlogRepository.GetAllList(i=>i.BlogId==id);
+            return efBlogRepository.GetAllList(i => i.BlogId == id);
         }
 
         public List<Blog> GetBlogListByWriter(int id)
         {
-        return    efBlogRepository.GetAllList(x => x.WriterId == id);
+            return efBlogRepository.GetAllList(x => x.WriterId == id);
         }
     }
 }

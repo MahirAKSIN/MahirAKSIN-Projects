@@ -7,7 +7,9 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Abstract
 {
- public   interface IFoodDAL:IRepository<Food>
+    public interface IFoodDAL : IRepository<Food>
     {
+        List<Food> GetListWithCategorg();
+
     }
 }

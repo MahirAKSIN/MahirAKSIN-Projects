@@ -1,17 +1,210 @@
-﻿@using EntityLayer.Concrete;
+﻿@using EntityLayer.Concrete
 @model List<Food>
-
+<!--
+    Author: W3layouts
+    Author URL: http://w3layouts.com
+    License: Creative Commons Attribution 3.0 Unported
+    License URL: http://creativecommons.org/licenses/by/3.0/
+-->
 @{
 
-    ViewData["Title"] = "Food List";
     Layout = "~/Views/Shared/UserLayout.cshtml";
 
 }
-<link href="~/web/css/bootstrap.css" rel="stylesheet" />
-<link href="~/css/site.css" rel="stylesheet" /><a href="single.html">
-    <img src="~/web/images/h.jpg" class="card-img-top img-fluid">
-</a>
-
-                                               <h1> Yemek Ekleme sayfasi</h1>
 
 
+
+<link href="/web/css/bootstrap.css" rel='stylesheet' type='text/css' />
+<link rel="stylesheet" href="/web/css/single.css">
+<link href="/web/css/style.css" rel='stylesheet' type='text/css' />
+<link href="/web/css/fontawesome-all.css" rel="stylesheet">
+<link href="//fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800"
+      rel="stylesheet">
+<link href="~/cookingrecipewebtemplate/css/style.css" rel="stylesheet" />
+<link href="~/css/site.css" rel="stylesheet" />
+<link href="~/web/css/style.css" rel="stylesheet" />
+
+
+<!--
+    Author: W3layouts
+    Author URL: http://w3layouts.com
+    License: Creative Commons Attribution 3.0 Unported
+    License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+      
+   <section>
+    <div class="container-fluid ">
+<h3 class="tittle"></h3>
+<div class="row my-2">
+
+<div class="col-lg-8 left-blog-info-w3layouts-agileits text-left ">
+    <div class="row mb-4">
+        @foreach (var food in Model)
+        {
+                     
+
+            <div class="col-md-4 car ">
+
+                <a href="#">
+                    <img src="~/web/images/@food.FoodImage" class="card-img-top img-fluid" alt="">
+                </a>
+                <div class="card-body">
+                    <ul class="blog-icons my-4">
+                        <li>
+                            <a href="#">
+                                <i class="far fa-calendar-alt"></i> @(((DateTime)food.FoodCreateDate).ToString("dd-MMM-yyyy"))
+                            </a>
+                        </li>
+                        <li class="mx-2">
+                            <a href="#">
+                                <i class="far fa-comment"></i> 21
+                                
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fas fa-eye"></i> @food.Category.CategoryName
+                            </a>
+                        </li>
+
+                    </ul>
+                    <h5 class="card-title ">
+                        <a href="/Food/GetFoodDetail/@food.FoodId">@food.FoodTitle</a>
+                    </h5>
+                    @*<p class="card-text mb-3">@food.FoodContent </p>*@
+                    <p class="card-text mb-3">@food.FoodContent.Substring(0, food.FoodContent.Substring(0, 10).LastIndexOf(""))</p>
+                    <a href="/food/GetFoodDetail/@food.FoodId" class="btn btn-primary read-m">Yemek Detaylari</a>
+                </div>
+            </div>
+        }
+        <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-left mt-4">
+                <li class="page-item disabled">
+                    <a class="page-link" href="#" tabindex="-1">Sayfalar</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="#">1</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="#">2</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="#">3</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="#">+</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+@*//left
+right*@
+<aside class="col-lg-4 agileits-w3ls-right-blog-con text-left">
+    <div class="right-blog-info text-left">
+        <div class="tech-btm widget_social text-left">
+            <h4>Anlık İletişim Için</h4>
+            <ul>
+                <li>
+                    <a class="twitter" href="#">
+                        <i class="fab fa-twitter"></i>
+                        <span class="count">317K</span> Twitter Followers
+                    </a>
+                </li>
+                <li>
+                    <a class="facebook" href="#">
+                        <i class="fab fa-facebook-f"></i>
+                        <span class="count">218k</span> Twitter Followers
+                    </a>
+                </li>
+                <li>
+                    <a class="dribble" href="#">
+                        <i class="fab fa-dribbble"></i>
+
+                        <span class="count">215k</span> Dribble Followers
+                    </a>
+                </li>
+                <li>
+                    <a class="pin" href="#">
+                        <i class="fab fa-pinterest"></i>
+                        <span class="count">190k</span> Pinterest Followers
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="tech-btm">
+        </div>
+        <div class="tech-btm">
+
+            <div class="blog-grids row mb-3">
+                <div class="col-md-5 blog-grid-left">
+                    <a href="single.html">
+                        <img src="/web/images/banner3.jpg" class="card-img-top img-fluid" alt="">
+                    </a>
+                </div>
+                <div class="col-md-7 blog-grid-right">
+                    <h5>
+                        <a href="single.html">En Cok Tercih Edilen Çorba </a>
+                    </h5>
+                    <div class="sub-meta">
+                        <span>
+                            <i class="far fa-clock"></i> 20 Feb, 2018
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tech-btm">
+            <div class="blog-grids row mb-3 text-left">
+                <div class="col-md-5 blog-grid-left">
+                    <a href="single.html">
+                        <img src="/web/images/banner1.jpg" class="card-img-top img-fluid" alt="">
+                    </a>
+                </div>
+                <div class="col-md-7 blog-grid-right">
+
+                    <h5>
+                        <a href="single.html">En Cok Tercih Edilen Ana Yemek</a>
+                    </h5>
+                    <div class="sub-meta">
+                        <span>
+                            <i class="far fa-clock"></i> 20 Jan, 2018
+                        </span>
+                    </div>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+
+        </div>
+        <div class="tech-btm">
+            <div class="blog-grids row mb-3 text-left">
+                <div class="col-md-5 blog-grid-left">
+                    <a href="single.html">
+                        <img src="/web/images/banner1.jpg" class="card-img-top img-fluid" alt="">
+                    </a>
+                </div>
+                <div class="col-md-7 blog-grid-right">
+
+                    <h5>
+                        <a href="single.html">En Cok Tercih Edilen Tatlı</a>
+                    </h5>
+                    <div class="sub-meta">
+                        <span>
+                            <i class="far fa-clock"></i> 20 Jan, 2018
+                        </span>
+                    </div>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+        <div class="d-flex justify-content-center align-content-center my-4 ">
+            <a href="/Food/Create" class="btn btn-outline-primary rounded-0 text-black-50 rounded-0 vw-100">Yemek Ekle</a>
+        </div>
+    </div>
+</aside>
+@*//right*@
+</div>
+    </div>
+</section>
+ @*//Custom-JavaScript-File-Links*@ 
+<script src="/web/js/bootstrap.js"></script>

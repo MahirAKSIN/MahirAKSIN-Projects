@@ -1,5 +1,6 @@
 ﻿using BusinessLayer.Abstract;
 using DataAccessLayer.Abstract;
+using DataAccessLayer.Concrete.EntityFramework;
 using EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
@@ -11,38 +12,51 @@ namespace BusinessLayer.Concrete
 {
     public class FoodManager : IFoodService
     {
-
-        IFoodDAL _foodDAL;
-        public FoodManager(IFoodDAL foodDAL)
+        EfFoodRepository ef;
+       
+        public FoodManager( EfFoodRepository ef)
         {
-            _foodDAL = foodDAL;
+
+            this.ef = ef;
         }
+
+        //public FoodManager(EfFoodRepository ef, IFoodDAL foodDAL)
+        //{
+        //    this.ef = ef;
+        //    _foodDAL = foodDAL;
+        //}
+
         public void FoddAdd(Food food)
         {
-            _foodDAL.Add(food);
+            ef.Add(food);
         }
         public void FoodDelete(Food food)
         {
-            _foodDAL.Delete(food); ;
+            ef.Delete(food); ;
 
         }
         public void FoodUpdate(Food food)
         {
-            _foodDAL.Update(food);
+            ef.Update(food);
         }
         public List<Food> GetAllFood()
         {
-            return _foodDAL.GetAll();
+            return ef.GetAll();
         }
-        public Food GetById(int id)
+
+        public List<Food> GetById(int id)
         {
-            return _foodDAL.GetById(id);
-
-
+            return ef.GetAllList(i => i.FoodId == id);
         }
+
+        public List<Food> GetFoodListWithCategory()
+        {
+            return ef.GetListWithCategorg();
+        }
+
         public Food GetSingle(Food food)
         {
-            return _foodDAL.GetSingle(food);
+            return ef.GetSingle(food);
 
         }
     }
