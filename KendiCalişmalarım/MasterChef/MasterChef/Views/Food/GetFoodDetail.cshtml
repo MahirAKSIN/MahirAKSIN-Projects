@@ -15,42 +15,43 @@
             <div class="col-lg-8 left-blog-info-w3layouts-agileits text-left">
                 @foreach (var item in Model)
                 {
-                    <div class="blog-grid-top">
-                        <div class="b-grid-top">
-                            <div class="blog_info_left_grid">
-                                <a href="single.html">
-                                    <img src="~/FoodImg/@item.FoodImage" class="img-fluid" alt="">
-                                </a>
-                            </div>
-                            <div class="blog-info-middle">
-                                <ul>
-                                    <li>
-                                        <a href="#">
-                                            <i class="far fa-calendar-alt"></i>@(((DateTime)item.FoodCreateDate).ToString("dd-MMM-yyyy"))
-                                        </a>
-                                    </li>
-                                    <li class="mx-2">
-                                        <a href="#">
-                                            <i class="far fa-thumbs-up"></i> 0 Begeni
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="far fa-comment"></i> 0 Yorum
-                                        </a>
-                                    </li>
-                                   
-                                </ul>
-                            </div>
+                <div class="blog-grid-top">
+                    <div class="b-grid-top">
+                        <div class="blog_info_left_grid">
+                            <a href="single.html">
+                                <img src="~/FoodImg/@item.FoodImage" class="img-fluid" alt="">
+                            </a>
                         </div>
-                        <h3>
-                            <a href="#">@item.FoodTitle</a>
-                        </h3>
-                        <p>
-                            @item.FoodContent
-                        </p>
-                        <a href="single.html" class="btn btn-primary read-m">Yemek Listele</a>
+                        <div class="blog-info-middle">
+                            <ul>
+                                <li>
+                                    <a href="#">
+                                        <i class="far fa-calendar-alt"></i>@(((DateTime)item.FoodCreateDate).ToString("dd-MMM-yyyy"))
+                                    </a>
+                                </li>
+                                <li class="mx-2">
+                                    <a href="#">
+                                        <i class="far fa-thumbs-up"></i> 0 Begeni
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="far fa-comment"></i> 0 Yorum
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </div>
                     </div>
+                    
+                    <h3>
+                        <a href="#">@item.FoodTitle</a>
+                    </h3>
+                    <p>
+                        @item.FoodContent
+                    </p>
+                    <a href="single.html" class="btn btn-primary read-m">Yemek Listele</a>
+                </div>
                 }
                 @await Component.InvokeAsync("CommentListByFood", new { id = ViewBag.i })
 
@@ -62,7 +63,7 @@
             <aside class="col-lg-4 agileits-w3ls-right-blog-con text-right">
                 <div class="right-blog-info text-left">
                     <div class="tech-btm">
-                        <img src="~/web/images/banner1.jpg" class="img-fluid" alt="">
+                        <img src="~/FoodImg/chef.jpg" class="img-fluid" alt="">
                     </div>
 
                     @*@await Html.PartialAsync("~/Views/NewsLetter/subscribeMail.cshtml")
@@ -98,23 +99,24 @@
                         <div class="blog-grids row mb-3">
                             <div class="col-md-5 blog-grid-left">
                                 <a href="single.html">
-                                    <img src="~/web/images/b5.jpg" class="img-fluid" alt="">
+                                    <img src="~/FoodImg/sef.jpg" class="img-fluid" alt="">
                                 </a>
                             </div>
                             <div class="col-md-7 blog-grid-right">
                                 <h5>
-                                    <a href="single.html">Pellentesque dui, non felis. Maecenas male non felis </a>
+                                    <a href="single.html">Yemeklerimizi yapan beş yıldızlı,yarışmacı Sefimiz Engin Niyazi Ergün</a>
                                 </h5>
                                 <div class="sub-meta">
                                     <span>
-                                        <i class="far fa-clock"></i> 20 Feb, 2018
+                                        <i class="far fa-clock"></i> @DateTime.Now.ToShortDateString();
                                     </span>
                                 </div>
                             </div>
+                            
                         </div>
                     </div>
                     <div class="single-gd my-5 tech-btm">
-                        <h4>Our Progress</h4>
+                        <h4>Aylık Satışlarımız</h4>
                         <div class="progress">
                             <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 10%" aria-valuenow="10" aria-valuemin="0"
                                  aria-valuemax="100"></div>
@@ -137,24 +139,25 @@
                         </div>
                     </div>
                     <div class="single-gd tech-btm">
-                        <h4>Recent Post</h4>
+                        <h4>Ödüllü Tabağımız</h4>
                         <div class="blog-grids">
                             <div class="blog-grid-left">
                                 <a href="single.html">
-                                    <img src="~/web/images/b1.jpg" class="img-fluid" alt="">
+                                    <img src="~/FoodImg/ana-yemek-sunumlar.jpg" class="img-fluid" alt="">
                                 </a>
                             </div>
                             <div class="blog-grid-right">
 
                                 <h5>
-                                    <a href="single.html">Pellentesque dui, non felis. Maecenas male</a>
+                                    <a href="single.html">Aşçılar mutluluk tasarlar ve rüyaları satarlar.</a>
+                                    <p>Chef Bernard Loiseau</p>
                                 </h5>
                             </div>
                             <div class="clearfix"> </div>
                         </div>
                     </div>
                 </div>
-
+            
             </aside>
             <!--//right-->
         </div>

@@ -19,31 +19,31 @@ namespace MasterChef.Controllers
         {
             return View();
         }
-        public IActionResult Soup()
-        {
+        //public IActionResult Soup()
+        //{
 
-            return View();
+        //    return View();
 
-        }
-        public IActionResult MainCourse()
-        {
-            var val = fM.GetAllFood();
-            return View(val);
-        }
-        public IActionResult Dessert()
-        {
-            return View();
-        }
-        public IActionResult Drink()
-        {
-            return View();
+        //}
+        //public IActionResult MainCourse()
+        //{
+        //    var val = fM.GetAllFood();
+        //    return View(val);
+        //}
+        //public IActionResult Dessert()
+        //{
+        //    return View();
+        //}
+        //public IActionResult Drink()
+        //{
+        //    return View();
 
-        }
-        public IActionResult FastFood()
-        {
+        //}
+        //public IActionResult FastFood()
+        //{
 
-            return View();
-        }
+        //    return View();
+        //}
         public IActionResult Contact()
         {
             return View();
