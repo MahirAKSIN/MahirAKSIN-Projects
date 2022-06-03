@@ -20,6 +20,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BusinessLayer\BusinessLayer.csproj" />
+    <ProjectReference Include="..\MasterChef.Core\MasterChef.Core.csproj" />
   </ItemGroup>
 
 </Project>

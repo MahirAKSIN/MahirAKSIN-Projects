@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Abstract
 {
-    public interface IRepository<T> where T : class
+    public interface IRepository<T>
     {
         #region Methods
         void Add(T t);

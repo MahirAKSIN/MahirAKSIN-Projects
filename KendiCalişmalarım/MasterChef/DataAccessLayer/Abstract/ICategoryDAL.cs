@@ -9,5 +9,6 @@ namespace DataAccessLayer.Abstract
 {
     public interface ICategoryDAL:IRepository<Category>
     {
+        Category GetByIdWithCategories(int categoryId);
     }
 }

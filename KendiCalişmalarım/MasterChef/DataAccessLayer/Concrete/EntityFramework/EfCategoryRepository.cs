@@ -9,7 +9,11 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Concrete.EntityFramework
 {
-    public class EfCategoryRepository : GenericRepository<Category>,ICategoryDAL
+    public class EfCategoryRepository : GenericRepository<Category>, ICategoryDAL
     {
+        public Category GetByIdWithCategories(int categoryId)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

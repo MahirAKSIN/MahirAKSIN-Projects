@@ -14,8 +14,9 @@ namespace BusinessLayer.Abstract
         void FoodDelete(Food food);
         void FoodUpdate(Food food);
         List<Food> GetAllFood();
-      List<Food> GetById(int id);
+        List<Food> GetById(int id);
         Food GetSingle(Food food);
         List<Food> GetFoodListWithCategory();
+        void Create(Food entity, int[] categoryIds);
     }
 }

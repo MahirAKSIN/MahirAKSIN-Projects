@@ -20,6 +20,11 @@ namespace BusinessLayer.Concrete
             this.ef = ef;
         }
 
+        public void Create(Food entity, int[] categoryIds)
+        {
+           
+        }
+
         //public FoodManager(EfFoodRepository ef, IFoodDAL foodDAL)
         //{
         //    this.ef = ef;

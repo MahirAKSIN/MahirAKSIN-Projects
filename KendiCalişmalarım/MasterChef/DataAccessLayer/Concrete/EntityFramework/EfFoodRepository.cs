@@ -12,6 +12,11 @@ namespace DataAccessLayer.Concrete.EntityFramework
 {
     public class EfFoodRepository : GenericRepository<Food>, IFoodDAL
     {
+        public void Create(Food entity, int[] categoryIds)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<Food> GetListWithCategorg()
         {
             using (ContextDb c = new ContextDb())
@@ -19,6 +24,11 @@ namespace DataAccessLayer.Concrete.EntityFramework
                 return c.Foods.Include(i => i.Category).ToList();
 
             }
+        }
+
+        public void Update(Food entity, int[] categoryIds)
+        {
+            throw new NotImplementedException();
         }
     }
 }
