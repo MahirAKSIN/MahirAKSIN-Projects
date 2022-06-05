@@ -12,7 +12,7 @@ namespace CoreDemo.Controllers
     {
 
         BlogManager blogManager = new BlogManager(new  EfBlogRepository());
-
+        CommentManager CommentManager = new CommentManager(new EfCommentRepository());
         public IActionResult Index()
         {
             var blogVAlues = blogManager.GetBlogListWithCategory();
@@ -25,6 +25,17 @@ namespace CoreDemo.Controllers
             ViewBag.i =id;
             var val = blogManager.GetByBlogId(id);
             return View(val);
+        }
+        public IActionResult GetCommentId(int id)
+       {
+
+            //var val = blogManager.GetBlogListWithComment();
+            //return View(val);
+
+            var val = CommentManager.GetList(id);
+
+            return View(val);
+
         }
     }
 }

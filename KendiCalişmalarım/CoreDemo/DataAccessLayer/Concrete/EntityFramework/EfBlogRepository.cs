@@ -20,5 +20,13 @@ namespace DataAccessLayer.Concrete.EntityFramework
 
             }
         }
+        public List<Blog> GetListWithComment()
+        {
+            using (Context c = new Context())
+            {
+                return c.Blogs.Include(i => i.Comment).ToList();
+
+            }
+        }
     }
 }
