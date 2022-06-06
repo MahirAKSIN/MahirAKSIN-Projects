@@ -16,14 +16,14 @@ namespace CoreDemo.Controllers
         public IActionResult Index()
         {
 
-            return View();
+            var val = aboutManager.ListGetAbout();
+
+            return View(val);
         }
 
         public PartialViewResult Invoke()
         {
-            var val = aboutManager.ListGetAbout();
-
-            return PartialView(val);
+            return PartialView();
         }
     }
 }

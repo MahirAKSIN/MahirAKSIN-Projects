@@ -1,5 +1,5 @@
 ﻿@using EntityLayer;
-@model About;
+@model List<About>;
 
 
 @{
@@ -7,19 +7,14 @@
     Layout = "~/Views/Shared/UserLayout.cshtml";
 }
 <body>
-     
+
     <section class="main-content-w3layouts-agileits">
         <div class="container">
             <h3 class="tittle">About</h3>
             <div class="row inner-sec">
                 <!--left-->
                 <div class="col-lg-8 left-blog-info-w3layouts-agileits text-left">
-
-
-
-
                     <div class="blog-grid-top">
-
                         <div class="blog_info_left_grid">
                             <a href="single.html">
                                 <img src="/web/images/b5.jpg" class="img-fluid" alt="">
@@ -28,21 +23,18 @@
                         <h3>
                             Biz Kimiz & misyonumuz & vizyonumuz
                         </h3>
-                       @foreach (var item in Model)
-                       {
-
-                       }
+                        @foreach (var item in Model)
+                        {
                             <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit sedc dnmo eiusmod tempor incididunt ut labore et dolore magna
-                                aliqua uta enim ad minim ven iam quis nostrud exercitation ullamco labor nisi ut aliquip exea commodo consequat duis
-                                aute irudre dolor in elit sed uta labore dolore reprehender
+                                @item.AboutDetails1;
                             </p>
-                        
+                        }
                         <a href="single.html" class="btn btn-primary read-m">Read More</a>
-
                     </div>
-                <!--//left-->
-                <!--right-->
+                    <!--//left-->
+                    <!--right-->
+                    <!--//right-->
+                </div>
                 <aside class="col-lg-4 agileits-w3ls-right-blog-con text-right">
                     <div class="right-blog-info text-left">
                         <div class="tech-btm">
@@ -56,9 +48,9 @@
                     </div>
 
                 </aside>
-                <!--//right-->
+
             </div>
         </div>
     </section>
-    
-        </body>
+
+</body>
