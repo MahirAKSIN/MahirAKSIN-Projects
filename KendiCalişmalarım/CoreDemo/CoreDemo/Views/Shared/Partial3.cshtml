@@ -3,9 +3,9 @@
         <div class="row">
             <div class="col-lg-4 footer-grid-agileits-w3ls text-left">
                 <h3>Hakkımızda</h3>
-                <p>Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. lacinia eget consectetur sed, convallis at tellus..</p>
+                <p>Blog (Türkçe: ağ günlüğü, günce) veya Weblog (Türkçe: Ağ kütüğü) teknik bilgi gerektirmeden, kendi istedikleri şeyleri, kendi istedikleri şekilde yazan insanların oluşturabildikleri, günlüğe benzeyen web siteleridir. Genellikle güncelden eskiye doğru sıralanmış yazı ve yorumların yayınlandığı, web tabanlı bir yayını belirtir. Çoğunlukla her gönderinin sonunda yazarın adı ve gönderi zamanı belirtilir..</p>
                 <div class="read">
-                    <a href="single.html" class="btn btn-primary read-m">Devamını oku.</a>
+                    <a href="/about/index" class="btn btn-primary read-m">Devamını oku.</a>
                 </div>
             </div>
             <div class="col-lg-4 footer-grid-agileits-w3ls text-left">
@@ -25,7 +25,7 @@
                             </h5>
                             <div class="sub-meta">
                                 <span>
-                                    <i class="far fa-clock"></i> 20 Jan, 2018
+                                    <i class="far fa-clock"></i>@DateTime.Now.ToShortDateString()
                                 </span>
                             </div>
                         </div>
@@ -44,7 +44,7 @@
                             </h5>
                             <div class="sub-meta">
                                 <span>
-                                    <i class="far fa-clock"></i> 20 Jan, 2018
+                                    <i class="far fa-clock"></i> @DateTime.Now.ToShortDateString()
                                 </span>
                             </div>
                         </div>
@@ -63,7 +63,7 @@
                             </h5>
                             <div class="sub-meta">
                                 <span>
-                                    <i class="far fa-clock"></i> 20 Jan, 2018
+                                    <i class="far fa-clock"></i>@DateTime.Now.ToShortDateString()
                                 </span>
                             </div>
                         </div>
@@ -72,65 +72,51 @@
                 </div>
             </div>
             <!-- subscribe -->
-            <div class="col-lg-4 subscribe-main footer-grid-agileits-w3ls text-left">
-                <h2>Haber bültenimize kaydolun</h2>
-                <div class="subscribe-main text-left">
-                    <div class="subscribe-form">
-                        <form action="#" method="post" class="subscribe_form">
-                            <input class="form-control" type="email" placeholder="Mail adresiniz..." required="">
-                            <button type="submit" class="btn btn-primary submit">Gönder</button>
-                        </form>
-                        <div class="clearfix"> </div>
+            @await Html.PartialAsync("~/Views/NewsLetter/subscribeMail.cshtml")
+            <!-- footer -->
+            <div class="footer-cpy text-center">
+                <div class="footer-social">
+                    <div class="copyrighttop">
+                        <ul>
+                            <li class="mx-3">
+                                <a class="facebook" href="#">
+                                    <i class="fab fa-facebook-f"></i>
+                                    <span>Facebook</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="facebook" href="#">
+                                    <i class="fab fa-twitter"></i>
+                                    <span>Twitter</span>
+                                </a>
+                            </li>
+                            <li class="mx-3">
+                                <a class="facebook" href="#">
+                                    <i class="fab fa-google-plus-g"></i>
+                                    <span>Google+</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="facebook" href="#">
+                                    <i class="fab fa-pinterest-p"></i>
+                                    <span>Pinterest</span>
+                                </a>
+                            </li>
+                        </ul>
+
                     </div>
-                    <p>Gizliliğinize saygı duyuyoruz. Asla spam yok!</p>
                 </div>
-                <!-- //subscribe -->
-            </div>
-        </div>
-        <!-- footer -->
-        <div class="footer-cpy text-center">
-            <div class="footer-social">
-                <div class="copyrighttop">
-                    <ul>
-                        <li class="mx-3">
-                            <a class="facebook" href="#">
-                                <i class="fab fa-facebook-f"></i>
-                                <span>Facebook</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a class="facebook" href="#">
-                                <i class="fab fa-twitter"></i>
-                                <span>Twitter</span>
-                            </a>
-                        </li>
-                        <li class="mx-3">
-                            <a class="facebook" href="#">
-                                <i class="fab fa-google-plus-g"></i>
-                                <span>Google+</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a class="facebook" href="#">
-                                <i class="fab fa-pinterest-p"></i>
-                                <span>Pinterest</span>
-                            </a>
-                        </li>
-                    </ul>
+                <div class="w3layouts-agile-copyrightbottom">
+                    <p>
+                        © @DateTime.Now   Weblog. All Rights Reserved | Design by
+                        <a href="http://w3layouts.com/">W3layouts</a>
+                    </p>
 
                 </div>
             </div>
-            <div class="w3layouts-agile-copyrightbottom">
-                <p>
-                    © @DateTime.Now   Weblog. All Rights Reserved | Design by
-                    <a href="http://w3layouts.com/">W3layouts</a>
-                </p>
 
-            </div>
+            <!-- //footer -->
+
+
         </div>
-
-        <!-- //footer -->
-
-
-    </div>
 </footer>
