@@ -48,7 +48,12 @@ namespace BusinessLayer.Concrete
             efBlogRepository.Add(blog);
 
         }
-
+        public List<Blog> GetLast3Blog()
+        {
+            return efBlogRepository.GetAllList().TakeLast(3).ToList();
+                
+        }
+             
         public void BlogDelete(Blog blog)
         {
             efBlogRepository.Delete(blog);
