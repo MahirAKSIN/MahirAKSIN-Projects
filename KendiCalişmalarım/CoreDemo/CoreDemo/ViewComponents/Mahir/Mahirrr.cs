@@ -16,7 +16,7 @@ namespace CoreDemo.ViewComponents.Mahir
 
         public IViewComponentResult Invoke()
         {
-            var val = wM.ListGetBlog();
+            var val = wM.GetList();
             return View(val);
         }
 

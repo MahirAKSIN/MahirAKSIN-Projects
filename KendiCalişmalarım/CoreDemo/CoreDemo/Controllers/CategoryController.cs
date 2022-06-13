@@ -16,7 +16,7 @@ namespace CoreDemo.Controllers
 
         public IActionResult Index()
         {
-            var CatValues = categoryManager.GetAllCategory();
+            var CatValues = categoryManager.GetList();
 
 
             return View(CatValues);

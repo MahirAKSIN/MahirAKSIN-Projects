@@ -16,7 +16,7 @@ namespace CoreDemo.Controllers
         public IActionResult Index()
         {
 
-            var val = aboutManager.ListGetAbout();
+            var val = aboutManager.GetList();
 
             return View(val);
         }

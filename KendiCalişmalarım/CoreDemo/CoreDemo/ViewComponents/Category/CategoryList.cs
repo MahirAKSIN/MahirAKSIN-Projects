@@ -17,7 +17,7 @@ namespace CoreDemo.ViewComponents.Category
         public IViewComponentResult Invoke()
         {
 
-            var val = cM.GetAllCategory();
+            var val = cM.GetList();
 
             return View(val); 
         }

@@ -32,42 +32,16 @@ namespace BusinessLayer.Concrete
             return efBlogRepository.GetListWithCategory();
         }
 
-        public List<Blog> ListGetBlog()
-        {
-            return efBlogRepository.GetAllList();
-        }
+     
 
-        public Blog Blog(Blog blog)
-        {
-            return efBlogRepository.GetSingle(blog);
-        }
-
-        public void BlogAdd(Blog blog)
-        {
-            //blogDAL.Add(blog);
-            efBlogRepository.Add(blog);
-
-        }
+     
         public List<Blog> GetLast3Blog()
         {
             return efBlogRepository.GetAllList().TakeLast(3).ToList();
                 
         }
-             
-        public void BlogDelete(Blog blog)
-        {
-            efBlogRepository.Delete(blog);
-        }
+     
 
-        public void BlogUpdate(Blog blog)
-        {
-            efBlogRepository.Update(blog);
-        }
-
-        public Blog GetByBlog(int id)
-        {
-            return efBlogRepository.GetById(id);
-        }
 
         public List<Blog> GetByBlogId(int id)
         {
@@ -82,6 +56,31 @@ namespace BusinessLayer.Concrete
         public List<Blog> GetBlogListWithComment()
         {
             return efBlogRepository.GetListWithComment();
+        }
+
+        public void TAdd(Blog t)
+        {
+            efBlogRepository.Add(t);
+        }
+
+        public void TDelete(Blog t)
+        {
+            efBlogRepository.Delete(t);
+        }
+
+        public void TUpdate(Blog t)
+        {
+            efBlogRepository.Update(t);
+        }
+
+        public List<Blog> GetList()
+        {
+            return efBlogRepository.GetAllList();
+        }
+
+        public Blog GetById(int id)
+        {
+            throw new NotImplementedException();
         }
     }
 }

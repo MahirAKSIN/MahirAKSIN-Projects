@@ -18,9 +18,35 @@ namespace BusinessLayer.Concrete
             this.efAboutRepository = efAboutRepository;
         }
 
-        public List<About> ListGetAbout()
+        public About GetById()
         {
+            throw new NotImplementedException();
+        }
+
+        public About GetById(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<About> GetList()
+        {
+
             return efAboutRepository.GetAllList();
+        }
+
+        public void TAdd(About t)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void TDelete(About t)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void TUpdate(About t)
+        {
+            throw new NotImplementedException();
         }
     }
 }

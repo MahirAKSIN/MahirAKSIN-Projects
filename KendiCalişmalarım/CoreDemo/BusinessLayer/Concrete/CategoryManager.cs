@@ -21,96 +21,36 @@ namespace BusinessLayer.Concrete
 
         //GenericRepository<Category> genericRepository = new GenericRepository<Category>();
         //CategoryManager cm = new CategoryManager(new EfCategoryRepository());
-        
-
         ICategoryDAL _cd;
-
-
         public CategoryManager(ICategoryDAL cd)
         {
-           
+
             _cd = cd;
-           
+
         }
-
-        public List<Category> GetAllCategory()
-        {
-
-            return _cd.GetAllList();
-
-            //return efCategoryRepository.GetAllList();
-
-            //return genericRepository.GetAllList();
-            //using (var c = new Context())
-            //{
-            //    return c.Set<Category>().ToList();
-
-            //}
-        }
-
-        public void CategoryAdd(Category category)
-        {
-
-            _cd.Add(category );
-
-            //efCategoryRepository.Add(category);
-
-            //genericRepository.Add(category);
-            //using (var c = new Context())
-            //{
-            //    c.Add(category);
-            //    c.SaveChanges();
-            //}
-        }
-
-        public void CategoryDelete(Category category)
-        {
-
-
-            _cd.Delete(category);
-            //efCategoryRepository.Delete(category);
-
-            //genericRepository.Delete(category);
-            //using (var c = new Context())
-            //{
-            //    c.Remove(category);
-            //    c.SaveChanges();
-
-            //}
-        }
-
-        public void CategoryUpdate(Category category)
-        {
-            _cd.Update(category );
-
-            //efCategoryRepository.Update(category);
-
-            //genericRepository.Update(category);
-            //using (var c = new Context())
-            //{
-            //    c.Update(category);
-            //    c.SaveChanges();
-            //}
-        }
-
-        public Category GetById(int id)
-        {
-
-            return _cd.GetById(id);
-
-            /*eturn efCategoryRepository.GetById(id);*/
-
-            //return genericRepository.GetById(id);
-            //using (var c = new Context())
-            //{
-            //    return c.Set<Category>().Find(id);
-            //}
-        }
-
         public List<Category> GetCategoryWithBlog()
         {
             return _cd.GetCategoryWithBlog();
-
+        }
+        public void TAdd(Category t)
+        {
+            _cd.Add(t);
+        }
+        public void TDelete(Category t)
+        {
+            _cd.Delete(t);
+        }
+        public void TUpdate(Category t)
+        {
+            _cd.Update(t);
+        }
+        public Category GetById(int id)
+        {
+            return _cd.GetById(id);
+        }
+        public List<Category> GetList()
+        {
+            return _cd.GetAllList();
         }
     }
 }

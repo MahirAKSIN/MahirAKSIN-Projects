@@ -15,7 +15,7 @@ namespace CoreDemo.ViewComponents.Blog
 
             BlogManager bM = new BlogManager(new EfBlogRepository());
 
-            var val = bM.ListGetBlog();
+            var val = bM.GetList();
 
 
             return View(val);
