@@ -32,7 +32,10 @@ namespace BusinessLayer.Concrete
             return efBlogRepository.GetListWithCategory();
         }
 
-     
+     public List<Blog> GetListWithCategoryByWriterBm(int id)
+        {
+            return efBlogRepository.GetLListWithCategoryByWriter(id);
+        }
 
      
         public List<Blog> GetLast3Blog()
@@ -78,9 +81,9 @@ namespace BusinessLayer.Concrete
             return efBlogRepository.GetAllList();
         }
 
-        public Blog GetById(int id)
+        public Blog TGetById(int id)
         {
-            throw new NotImplementedException();
+            return efBlogRepository.GetById(id);
         }
     }
 }

@@ -44,7 +44,7 @@ namespace BusinessLayer.Concrete
         {
             _cd.Update(t);
         }
-        public Category GetById(int id)
+        public Category TGetById(int id)
         {
             return _cd.GetById(id);
         }
