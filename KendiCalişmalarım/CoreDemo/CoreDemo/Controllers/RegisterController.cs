@@ -33,7 +33,7 @@ namespace CoreDemo.Controllers
             {
                 p.WriterStatus = true;
                 p.WriterAbout = "Deneme Yapabilirsiniz..";
-                writerMan.WriterAdd(p);
+                writerMan.TAdd(p);
                 return RedirectToAction("Index", "Blog");
             }
             else
