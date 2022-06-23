@@ -17,8 +17,10 @@ namespace CoreDemo.Controllers
     public class BlogController : Controller
     {
         CategoryManager cW = new CategoryManager(new EfCategoryRepository());
+
         BlogManager blogManager = new BlogManager(new EfBlogRepository());
         CommentManager CommentManager = new CommentManager(new EfCommentRepository());
+
         public IActionResult Index()
         {
             var blogVAlues = blogManager.GetBlogListWithCategory();
