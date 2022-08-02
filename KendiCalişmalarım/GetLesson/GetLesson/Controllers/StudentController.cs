@@ -20,7 +20,7 @@ namespace GetLesson.Controllers
         public IActionResult Details()
         {
             var context = new BaseRepository<StudentInfo>();
-            return View(context.Get(context));
+            return View(context.GetAll());
 
         }
 

@@ -39,7 +39,7 @@ namespace MiniShopApp.WebUI.Controllers
         [HttpPost]
         public IActionResult ProductCreate(ProductModel model, int[] categoryIds, IFormFile file)
         {
-            if (ModelState.IsValid && categoryIds.Length>0 && file!=null)
+            if (ModelState.IsValid && categoryIds.Length > 0 && file != null)
             {
                 var url = JobManager.MakeUrl(model.Name);
                 model.ImageUrl = JobManager.UploadImage(file, url);
@@ -60,7 +60,7 @@ namespace MiniShopApp.WebUI.Controllers
             }
             //İşler yolunda gitmediyse
 
-            if (categoryIds.Length>0)
+            if (categoryIds.Length > 0)
             {
                 model.SelectedCategories = categoryIds.Select(catId => new Category()
                 {
@@ -72,7 +72,7 @@ namespace MiniShopApp.WebUI.Controllers
                 ViewBag.CategoryMessage = "Lütfen en az bir kategori seçiniz!";
             }
 
-            if (file==null)
+            if (file == null)
             {
                 ViewBag.ImageMessage = "Lütfen bir resim seçiniz!";
             }

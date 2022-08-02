@@ -32,7 +32,6 @@ namespace CoreDemo.Controllers
 
             return View(blogVAlues);
         }
-
         public IActionResult BlogReadAll(int id)
         {
             ViewBag.i = id;
@@ -101,8 +100,6 @@ namespace CoreDemo.Controllers
             blogManager.TDelete(val);
             return RedirectToAction("BlogListByWriter", "Blog");
         }
-
-
         [HttpGet]
         public IActionResult EditBlog(int id)
         {
